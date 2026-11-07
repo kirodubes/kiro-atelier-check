@@ -6,12 +6,13 @@
 - **KA Check is public** (Erik): source on GitHub `kirodubes/kiro-atelier-check`, package in `nemesis_repo`, so
   Kiro and KiroTux users install it with `sudo pacman -S kiro-atelier-check`. Other Arch-based systems get the package
   from the Kiro Atelier Ko-fi page.
-- **Freeware licence 1.0** replaces the "all rights reserved" notice: free to run and redistribute unchanged (repos,
+- **Freeware licence** replaces the "all rights reserved" notice: free to run and redistribute unchanged (repos,
   mirrors, installation images), no modified versions, no selling.
 - **New style gallery photos**: the gallery is now painted on four CC0 / public-domain photos from Wikimedia Commons,
   free to publish with KA Check (a snowy mountain lake, a colourful
   old-town street, a smiling woman in a cornfield, a big wave on rocks), and every profile was painted on them again.
   The fourth photo is "Sea" now (was "Sunset shore"; 1 string in all 13 languages, 127 per catalog).
+- **The licence has no version number of its own**: versions are package releases (title "Freeware Licence").
 - **README shows what Kiro Atelier paints**: one lake photo in five styles at the top (`docs/styles.jpg`, not in the
   package), a short pitch and the Ko-fi link.
 - **Floating World's description is honest about faces**: "Scenes and poses stay; faces take on the woodblock look"
