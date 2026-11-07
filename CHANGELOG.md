@@ -8,11 +8,11 @@
   from the Kiro Atelier Ko-fi page.
 - **Freeware licence 1.0** replaces the "all rights reserved" notice: free to run and redistribute unchanged (repos,
   mirrors, installation images), no modified versions, no selling.
-- **New style gallery photos**: the four photos were wallpapers from download sites (one with a watermark), not ours
-  to publish. They are now CC0 / public-domain photos from Wikimedia Commons (a snowy mountain lake, a colourful
+- **New style gallery photos**: the gallery is now painted on four CC0 / public-domain photos from Wikimedia Commons,
+  free to publish with KA Check (a snowy mountain lake, a colourful
   old-town street, a smiling woman in a cornfield, a big wave on rocks), and every profile was painted on them again.
   The fourth photo is "Sea" now (was "Sunset shore"; 1 string in all 13 languages, 127 per catalog).
-- **The buy card shows the mountain lake** (original, Palette Knife, Poster Studio, Edo Landscape): it shows the
+- **The Ko-fi card shows the mountain lake** (original, Palette Knife, Poster Studio, Edo Landscape): it shows the
   styles best. Same styles as before, so the caption stays true.
 
 ### Technical Details
@@ -25,10 +25,10 @@
 - `LICENSE`, `README.md`, `CLAUDE.md`, `CHANGELOG.md`, `up.sh` + `setup.sh` (new),
   `usr/share/kiro-atelier-check/gallery/` (re-exported)
 
-## 2026.11.06 — Buy card, graphics card list
+## 2026.11.06 — Ko-fi card, graphics card list
 
 ### What Changed
-- **Get Kiro Atelier on Ko-fi**: KA Check now sells. A buy card shows one photo in four styles (the original,
+- **Get Kiro Atelier on Ko-fi**: KA Check now points to Kiro Atelier. A card shows one photo in four styles (the original,
   Palette Knife, Poster Studio, Edo Landscape), a short pitch (4K wallpapers, the styles, paints on your own PC so
   photos never leave home), a big orange "Get Kiro Atelier on Ko-fi" button, "See what Kiro Atelier paints" next to
   it and the link itself under it. A PC that can run KA sees the card right under the verdict ("Your PC is ready:
@@ -51,7 +51,7 @@
 - **Second check by Copilot** (gpt-6-luna, `ai-review.py`) over every string of every catalog: 149 findings, 136
   applied automatically, 1 by hand (Russian, line break), 1 rewritten by hand (German: the fix dropped "not tested"
   and turned "settings" into "pictures"), 11 rejected: "KiroTux" → "Kirotux" in French and Dutch (product name),
-  Dutch "Koop" → "Haal" on the Ko-fi button (it is a purchase) and "Workstation" → "Werkstation", and Hungarian
+  Dutch "Koop" → "Haal" on the Ko-fi button (it leads to the Ko-fi page) and "Workstation" → "Werkstation", and Hungarian
   fixes that renamed Kiro Atelier's own "Beállítás" (Setup) page and "A ComfyUI helye" option, which KA Check quotes
   word for word.
 - The "doesn't work" rows of the card list held ordinary words ("all versions", "and older", "graphics built into
@@ -103,7 +103,7 @@
   `usr/share/kiro-atelier-check/gallery/` (400 px thumbnails, 1280 px views, `gallery.json`, 10.7 MB), exported
   from Kiro Atelier's `tools/style_gallery.py --export`. Standalone code, like the rest of KA Check.
 - KA Check becomes its own package, next to Kiro Atelier: a free, read-only check whether a PC can run Kiro
-  Atelier, meant for buyers before they pay. Menu entry "KA Check" with KA's brush icon plus a green check.
+  Atelier, meant for people before they get Kiro Atelier. Menu entry "KA Check" with KA's brush icon plus a green check.
 - Checks: Arch-based system, NVIDIA card, working driver, card generation (RTX 20xx / GTX 16xx or newer), 6 GB
   video memory, 16 GB RAM, 20 GB free disk. "More info" on every hard failure gives the technical reason;
   "What you can do" cards explain the next step (another Arch-based Linux PC can do the painting; Windows and

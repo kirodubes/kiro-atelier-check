@@ -11,9 +11,9 @@ Kiro Atelier, so it can also be offered as a single-file download.
   package to `~/Insync/KoFi/`). Freeware licence (`LICENSE`): free to run and redistribute unchanged, no modified
   versions, no selling. Everything here is public: no hostnames, LAN addresses or private photos.
 - The style gallery comes from KA's `tools/style_gallery.py --export`, painted on CC0 / public-domain photos only
-  (KA `tools/gallery-photos/SOURCES.md`). Never export a gallery made from downloaded wallpapers.
+  (KA `tools/gallery-photos/SOURCES.md`). Never export a gallery made from photos we may not publish.
 - Never `cd` into `usr/` (use absolute paths): the harness drops a `.claude/` folder in the cwd.
-- Read-only: the check never installs, starts or changes anything. Text for buyers: plain words, no jargon in
+- Read-only: the check never installs, starts or changes anything. Text for users: plain words, no jargon in
   the main line; the technical reason goes in `more` ("More info").
 - Python: `ruff check` before done (`ruff.toml` here), lines ≤ 120.
 
@@ -25,8 +25,8 @@ Change them here when KA's Setup or models change.
 ComfyUI's `nvidia_16_series` list → warning). Recheck it when NVIDIA ships new cards or the rule changes. Only the
 RTX 2060 6 GB is tested: never word the list or texts as "works" or with times that weren't measured.
 
-## Buy card (2026.11.06)
-- `buy_card()` sells KA: Ko-fi link `KOFI_URL` (button, link and the last line of `--text`). Under the verdict when
+## Ko-fi card (2026.11.06)
+- `buy_card()` points to KA on Ko-fi: link `KOFI_URL` (button, link and the last line of `--text`). Under the verdict when
   the PC can run KA, after the tips when it can't. Keep it honest: never promise what KA doesn't do.
 - **Coupling**: the caption names the 4 `HERO_PICTURES` styles; change both together (and the 13 `.po`).
 

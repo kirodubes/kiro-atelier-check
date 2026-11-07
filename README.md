@@ -1,6 +1,6 @@
 # KA Check (kiro-atelier-check)
 
-**KA Check** tells whether a PC can run **Kiro Atelier** (KA), before anyone buys it. It is free, installs and
+**KA Check** tells whether a PC can run **Kiro Atelier** (KA), before anyone gets it. It is free, installs and
 changes nothing, and gives one plain verdict: "This PC can run Kiro Atelier" or "This PC can't run Kiro Atelier",
 with the reason per check and what the user can do about it.
 
