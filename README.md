@@ -13,6 +13,12 @@ before you decide. Photo: Stanton Mountain, Lake McDonald (public domain).*
 impasto, watercolour, gouache, pastel, Japanese woodblock, linocut, charcoal and more, in 4K.
 Get it here: [Kiro Atelier](https://ko-fi.com/s/6ff5175237), after KA Check says your PC can run it.
 
+## Videos
+
+1. **Start here — KA Check**: run it first to see whether your PC can run Kiro Atelier.
+   [Watch on YouTube](https://youtu.be/Igz7gAPWQNA)
+2. **Kiro Atelier at work — an example**: [Watch on YouTube](https://youtu.be/yeytaYsZgQY)
+
 ## What it checks
 
 | Check | Needed |

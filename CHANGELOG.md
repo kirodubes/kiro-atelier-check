@@ -20,6 +20,8 @@
   text as Kiro Atelier, all 13 languages; `gallery.json` updated.
 - **The Ko-fi card shows the mountain lake** (original, Palette Knife, Poster Studio, Edo Landscape): it shows the
   styles best. Same styles as before, so the caption stays true.
+- **README links the two videos**: KA Check first (https://youtu.be/Igz7gAPWQNA), then a Kiro Atelier example
+  (https://youtu.be/yeytaYsZgQY), in a new "Videos" section under the pitch.
 
 ### Technical Details
 - Moved from `~/KIROTUX/kiro-atelier-check` to `~/KIRO/kiro-atelier-check`; `up.sh` + `setup.sh` copied from the
