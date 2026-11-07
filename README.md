@@ -4,6 +4,15 @@
 changes nothing, and gives one plain verdict: "This PC can run Kiro Atelier" or "This PC can't run Kiro Atelier",
 with the reason per check and what the user can do about it.
 
+![A mountain lake photo and the same photo painted by Kiro Atelier in five styles: Palette Knife, Linocut, Charcoal Sketch, Floating World and Edo Landscape](docs/styles.jpg)
+
+*One photo, painted by Kiro Atelier on a home PC in five of its styles. KA Check shows every style on four photos
+before you decide. Photo: Stanton Mountain, Lake McDonald (public domain).*
+
+**Kiro Atelier** turns your photos and wallpapers into paintings on your own computer, with no cloud and no account:
+impasto, watercolour, gouache, pastel, Japanese woodblock, linocut, charcoal and more, in 4K.
+Get it here: [Kiro Atelier](https://ko-fi.com/s/6ff5175237), after KA Check says your PC can run it.
+
 ## What it checks
 
 | Check | Needed |

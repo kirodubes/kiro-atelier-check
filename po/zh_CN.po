@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kiro-atelier-check\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 15:02+0100\n"
+"POT-Creation-Date: 2026-11-07 16:12+0100\n"
 "PO-Revision-Date: 2026-11-05 18:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -489,10 +489,10 @@ msgstr "柔和的粉彩：在有色纸张上呈现粉笔般的笔触和柔和过
 #: usr/bin/kiro-atelier-check:403
 msgid ""
 "Japanese woodblock print: clean outlines, flat colours, patterned waves and "
-"clouds. People and action scenes stay recognisable."
+"clouds. Scenes and poses stay; faces take on the woodblock look."
 msgstr ""
-"日本木刻版画：清晰的轮廓、平涂色彩，以及带图案的波浪和云朵。人物和动作场景仍"
-"可辨认。"
+"日本木刻版画：清晰的轮廓、平涂色彩，以及带图案的波浪和云朵。场景和姿势保持不"
+"变；人脸会呈现木刻版画风格。"
 
 #: usr/bin/kiro-atelier-check:405
 msgid ""

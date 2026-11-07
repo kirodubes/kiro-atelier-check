@@ -401,7 +401,7 @@ GALLERY_DESCRIPTIONS = [
     N_("Gouache: flat, bold colour shapes like a travel poster."),
     N_("Soft pastel: chalky strokes and blended light on toned paper."),
     N_("Japanese woodblock print: clean outlines, flat colours, patterned waves and clouds. "
-       "People and action scenes stay recognisable."),
+       "Scenes and poses stay; faces take on the woodblock look."),
     N_("Strongest woodblock look, for landscapes. People and action scenes get replaced."),
     N_("Woodcut print: bold carved black lines and a few flat colours. Best on landscapes."),
     N_("Charcoal drawing: smudged black and grey strokes on rough paper, strong contrast."),

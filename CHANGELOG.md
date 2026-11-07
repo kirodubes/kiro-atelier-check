@@ -12,6 +12,11 @@
   free to publish with KA Check (a snowy mountain lake, a colourful
   old-town street, a smiling woman in a cornfield, a big wave on rocks), and every profile was painted on them again.
   The fourth photo is "Sea" now (was "Sunset shore"; 1 string in all 13 languages, 127 per catalog).
+- **README shows what Kiro Atelier paints**: one lake photo in five styles at the top (`docs/styles.jpg`, not in the
+  package), a short pitch and the Ko-fi link.
+- **Floating World's description is honest about faces**: "Scenes and poses stay; faces take on the woodblock look"
+  replaces "People and action scenes stay recognisable" (in the gallery the portrait got Japanese features). Same
+  text as Kiro Atelier, all 13 languages; `gallery.json` updated.
 - **The Ko-fi card shows the mountain lake** (original, Palette Knife, Poster Studio, Edo Landscape): it shows the
   styles best. Same styles as before, so the caption stays true.
 
