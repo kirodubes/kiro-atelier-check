@@ -1,0 +1,776 @@
+#!/usr/bin/env python3
+"""KA Check: tells whether this PC can run Kiro Atelier, before anyone buys it (free, read-only, standalone)."""
+
+# Nothing is installed or changed. Opens a small window when GTK 4 is available, else prints to the terminal;
+# --text forces the terminal (--more adds the technical reasons); --cards shows which graphics cards work (a window
+# on a desktop, else printed; --cards --text prints).
+# Exit code: 0 = can run, 1 = can't, 2 = can run with a warning.
+
+import json
+import os
+import shutil
+import subprocess
+import sys
+import unicodedata
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "share" / "kiro-atelier-check"))
+from kac_i18n import N_, _, restore_environment, chosen, available, name as language_name, SYSTEM, ACTIVE, save_choice  # noqa: E402
+
+OK, WARN, FAIL = "ok", "warn", "fail"
+SYSTEM_TITLE = N_("Linux system")
+CARD_TITLE = N_("Graphics card")
+DRIVER_TITLE = N_("NVIDIA driver")
+GENERATION_TITLE = N_("Card generation")
+VRAM_TITLE = N_("Video memory")
+RAM_TITLE = N_("Memory (RAM)")
+DISK_TITLE = N_("Free disk space")
+MIN_VRAM_GB = 6
+# ComfyUI with SDXL and the naming model holds about 10 GB of RAM.
+MIN_RAM_GB, GOOD_RAM_GB = 12, 15
+# ComfyUI + PyTorch (~6 GB) + models (~7.5 GB) + room to work.
+MIN_DISK_GB = 20
+# Turing (RTX 20xx, GTX 16xx) and newer: the PyTorch build Kiro Atelier uses has no code for older cards.
+MIN_COMPUTE = 7.5
+
+
+def _out(argv):
+    try:
+        done = subprocess.run(argv, capture_output=True, text=True, timeout=20)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    return done.stdout.strip() if done.returncode == 0 else None
+
+
+def _smi(field):
+    text = _out(["nvidia-smi", f"--query-gpu={field}", "--format=csv,noheader,nounits"])
+    return text.splitlines()[0].strip() if text else None
+
+
+def _graphics_cards():
+    lspci = _out(["lspci"]) or ""
+    return [line.split(": ", 1)[-1] for line in lspci.splitlines()
+            if "vga" in line.lower() or "3d controller" in line.lower() or "display controller" in line.lower()]
+
+
+def _nvidia_in_lspci():
+    return [card for card in _graphics_cards() if "nvidia" in card.lower()]
+
+
+def _old_chip():
+    # lspci names the chip: GF = Fermi, GK = Kepler, GM = Maxwell, GP = Pascal, GV = Volta, all too old.
+    # Turing (TU) and newer pass; the name works without a driver.
+    cards = " ".join(_nvidia_in_lspci())
+    return any(f"{code}1" in cards or f"[{code}" in cards or f" {code}" in cards
+               for code in ("GF", "GK", "GM", "GP", "GV"))
+
+
+def _no_card_reason():
+    if not _nvidia_in_lspci():
+        return _("No NVIDIA card.")
+    return _("This card is too old (before RTX 20xx / GTX 16xx).") if _old_chip() else _(
+        "Unknown until the driver works."
+    )
+
+
+# ── Checks → (title, status, detail[, more]) ─────────────────────────
+# more: the technical reason, shown behind "More info".
+def check_system():
+    if shutil.which("pacman"):
+        return SYSTEM_TITLE, OK, _("Arch-based (pacman), so the Kiro Atelier package installs here.")
+    return SYSTEM_TITLE, FAIL, _("Kiro Atelier is a package for Arch-based Linux (Kiro, KiroTux, Arch); "
+                                 "this system has no pacman.")
+
+
+def check_card():
+    cards = _nvidia_in_lspci()
+    if cards:
+        return CARD_TITLE, OK, (_smi("name") or cards[0])
+    found = _("Found: {cards}. ").format(cards="; ".join(_graphics_cards())) if _graphics_cards() else ""
+    return (CARD_TITLE, FAIL, found + _("No NVIDIA card; painting needs one (AMD and Intel are not supported)."),
+            _("Kiro Atelier paints with Stable Diffusion XL in ComfyUI, on PyTorch with NVIDIA's CUDA. Intel "
+              "graphics have no CUDA and share the normal memory, far too slow and too small for SDXL. AMD cards "
+              "would need PyTorch for ROCm, which Kiro Atelier isn't built or tested for. No driver or setting "
+              "changes this: it takes an NVIDIA card (RTX 20xx / GTX 16xx or newer, 6 GB) in this PC, or another "
+              "Linux PC that has one."))
+
+
+def check_driver():
+    version = _smi("driver_version")
+    if version:
+        return DRIVER_TITLE, OK, _("Driver {version} is working.").format(version=version)
+    if not _nvidia_in_lspci():
+        return DRIVER_TITLE, FAIL, _("No NVIDIA card.")
+    if _old_chip():
+        return (DRIVER_TITLE, FAIL, _("Not working, and current NVIDIA drivers no longer support this card."),
+                _("NVIDIA's current drivers start at Turing (RTX 20xx / GTX 16xx); older cards only work with "
+                  "legacy drivers, and even then the card would be too old for Kiro Atelier (see Card generation)."))
+    return DRIVER_TITLE, FAIL, _("The NVIDIA driver is not working (not installed, or not loaded: restart). "
+                                 "Kiro Atelier's Setup can install it; run this check again afterwards.")
+
+
+# Compute capability → NVIDIA's name for that generation.
+GENERATIONS = [(5.0, "Maxwell, GTX 900"), (6.0, "Pascal, GTX 10xx"), (7.0, "Volta"),
+               (7.5, "Turing, RTX 20xx / GTX 16xx"), (8.0, "Ampere, RTX 30xx"), (8.9, "Ada, RTX 40xx"),
+               (9.0, "Hopper"), (10.0, "Blackwell, RTX 50xx")]
+
+
+# ComfyUI's own list of cards where fp16 is broken (comfy/model_management.py, should_use_fp16 → nvidia_16_series):
+# it runs them in fp32. Same names, same case-sensitive match on the card name, so KA Check warns where ComfyUI slows.
+SLOW_CARDS = ["1660", "1650", "1630", "T500", "T550", "T600", "MX550", "MX450", "CMP 30HX", "T2000", "T1000", "T1200"]
+
+
+def _generation(cap):
+    return next((name for start, name in reversed(GENERATIONS) if cap >= start), "older than Maxwell")
+
+
+def check_generation():
+    cap = _smi("compute_cap")
+    if cap is None:
+        return GENERATION_TITLE, FAIL, _no_card_reason()
+    if float(cap) < MIN_COMPUTE:
+        return (GENERATION_TITLE, FAIL, _("Too old: {generation}. Kiro Atelier needs an RTX 20xx / GTX 16xx or newer.")
+                .format(generation=_generation(float(cap))),
+                _("This card's compute capability is {cap}. The PyTorch build Kiro Atelier installs (for CUDA 12.8) "
+                  "only contains code for compute 7.5 (Turing) and newer, so it can't run anything on this card. "
+                  "An older PyTorch build still supports it, but Kiro Atelier isn't built or tested for that.")
+                .format(cap=cap))
+    if any(chip in (_smi("name") or "") for chip in SLOW_CARDS):
+        return (GENERATION_TITLE, WARN, _("Supported, but untested and likely slow: {generation}.")
+                .format(generation=_generation(float(cap))),
+                _("ComfyUI treats GTX 16xx and similar cards differently from RTX cards: by default it doesn't use "
+                  "half precision (fp16) on them, the fast mode RTX cards paint in. Expect painting to be clearly "
+                  "slower, and some settings may not finish. Kiro Atelier hasn't been tested on these cards."))
+    return GENERATION_TITLE, OK, _("Supported: {generation} (compute {cap}).").format(
+        generation=_generation(float(cap)), cap=cap)
+
+
+def check_vram():
+    total = _smi("memory.total")
+    if total is None:
+        return VRAM_TITLE, FAIL, _no_card_reason()
+    gb = int(total) / 1024
+    if gb < MIN_VRAM_GB - 0.5:
+        return (VRAM_TITLE, FAIL, _("{gb} GB, too little; painting needs at least {minimum} GB.").format(
+            gb=f"{gb:.0f}", minimum=MIN_VRAM_GB),
+            _("Kiro Atelier is built and tested for at least {minimum} GB of video memory. ComfyUI has memory-saving "
+              "modes that may run the painting model (SDXL) on less, but slowly, and Kiro Atelier isn't tested that "
+              "way; it can also run out of memory.").format(minimum=MIN_VRAM_GB))
+    return VRAM_TITLE, OK, _("{gb} GB.").format(gb=f"{gb:.0f}")
+
+
+def check_ram():
+    kb = next(int(line.split()[1]) for line in Path("/proc/meminfo").read_text().splitlines()
+              if line.startswith("MemTotal:"))
+    gb = kb / 1024 / 1024
+    if gb < MIN_RAM_GB:
+        return (RAM_TITLE, FAIL, _("{gb} GB; Kiro Atelier needs 16 GB.").format(gb=f"{gb:.0f}"),
+                _("While painting, ComfyUI keeps the SDXL model, the upscaler and the naming model in normal memory "
+                  "next to the graphics card: about 10 GB. With less, the PC swaps to disk or stops with an "
+                  "out-of-memory error."))
+    if gb < GOOD_RAM_GB:
+        return RAM_TITLE, WARN, _("{gb} GB; it runs, but 16 GB is advised (expect swapping, close the browser "
+                                  "while painting).").format(gb=f"{gb:.0f}")
+    return RAM_TITLE, OK, _("{gb} GB.").format(gb=f"{gb:.0f}")
+
+
+def check_disk():
+    stat = os.statvfs(Path.home())
+    gb = stat.f_bavail * stat.f_frsize / 1_000_000_000
+    if gb < MIN_DISK_GB:
+        return (DISK_TITLE, FAIL, _("{gb} GB free in your home folder; about {needed} GB is needed.").format(
+            gb=f"{gb:.0f}", needed=MIN_DISK_GB),
+            _("ComfyUI and PyTorch take about 6 GB, the painting models (SDXL, its VAE, the upscaler, the naming "
+              "model) about 7.5 GB, and the paintings themselves need room too."))
+    return DISK_TITLE, OK, _("{gb} GB free in your home folder.").format(gb=f"{gb:.0f}")
+
+
+CHECKS = [check_system, check_card, check_driver, check_generation, check_vram, check_ram, check_disk]
+
+
+def run_checks():
+    """All checks, in order."""
+    return [(*result, None) if len(result) == 3 else result for result in (check() for check in CHECKS)]
+
+
+GPU_CHECKS = (CARD_TITLE, DRIVER_TITLE, GENERATION_TITLE, VRAM_TITLE)
+
+
+def advice(results):
+    """What the user can do about the failed checks: (title, paragraph, numbered steps) per tip."""
+    failed = {result[0] for result in results if result[1] == FAIL}
+    warned = {result[0] for result in results if result[1] == WARN}
+    tips = []
+    if SYSTEM_TITLE in failed:
+        tips.append((_("Use an Arch-based Linux system"),
+                     _("Kiro Atelier is a package for Arch-based Linux: Kiro, KiroTux or Arch itself."), []))
+    if DRIVER_TITLE in failed and not failed & {CARD_TITLE, GENERATION_TITLE} and not _old_chip():
+        tips.append((_("Install the NVIDIA driver"),
+                     _("The card is fine, only its driver is missing or not loaded."),
+                     [_("Install the driver (on Kiro: run kiro-hwd)."), _("Restart the PC."), _("Run KA Check again.")]))
+    if failed & set(GPU_CHECKS):
+        tips.append((_("Let another PC do the painting"),
+                     _("Kiro Atelier on this PC can send the wallpapers to another PC in your home and get the "
+                       "paintings back. That PC does the painting, so it needs the NVIDIA card. Only an Arch-based "
+                       "Linux PC (Kiro, KiroTux, Arch) is supported for that; Windows and Mac aren't."),
+                     [_('Run KA Check on the other PC: it must say "This PC can run Kiro Atelier."'),
+                      _("Install Kiro Atelier on both PCs."),
+                      _('On this PC, open Settings and choose "ComfyUI runs on: Another computer".')]))
+    if GENERATION_TITLE in warned:
+        tips.append((_("Expect slow paintings"),
+                     _("This card meets the requirements, but Kiro Atelier hasn't been tested on it and painting is "
+                       "likely to be much slower than on an RTX card. An RTX card with 6 GB of video memory or more is "
+                       "the safe choice."), []))
+    if RAM_TITLE in failed:
+        tips.append((_("Add memory"), _("Painting on this PC needs 16 GB of memory."), []))
+    if RAM_TITLE in warned:
+        tips.append((_("Keep memory free"), _("Close the browser and other big programs while painting."), []))
+    if DISK_TITLE in failed:
+        tips.append((_("Free up disk space"),
+                     _("Make room in your home folder until about {needed} GB is free.").format(needed=MIN_DISK_GB), []))
+    return tips
+
+
+def verdict(results):
+    """(status, one line) for the whole PC."""
+    if any(result[1] == FAIL for result in results):
+        return FAIL, _("This PC can't run Kiro Atelier.")
+    if any(result[1] == WARN for result in results):
+        return WARN, _("This PC can run Kiro Atelier, with the warning below.")
+    return OK, _("This PC can run Kiro Atelier.")
+
+
+# ── Terminal ────────────────────────────────────────────────────────
+def show_text(results):
+    """Print the report; returns the exit code."""
+    colour = sys.stdout.isatty()
+    marks = {OK: ("32", "OK  "), WARN: ("33", "WARN"), FAIL: ("31", "NO  ")}
+
+    def paint(status, text):
+        code = marks[status][0]
+        return f"\033[{code}m{text}\033[0m" if colour else text
+
+    def cells(text):
+        # Terminal columns: Chinese and Japanese characters take two.
+        return sum(2 if unicodedata.east_asian_width(c) in "WF" else 1 for c in text)
+
+    # The title column fits the longest title in this language (German and Russian ones are longer).
+    width = max(cells(_(title)) for title, *_rest in results)
+    print(_("KA Check: can this PC run Kiro Atelier?\n"))
+    for title, status, detail, more in results:
+        name = _(title)
+        print(f"  {paint(status, marks[status][1])}  {name}{' ' * (width - cells(name))}  {detail}")
+        if more and "--more" in sys.argv:
+            print(f"{'':24}{more}")
+    status, line = verdict(results)
+    print(f"\n{paint(status, line)}")
+    tips = advice(results)
+    if tips:
+        print(f"\n{_('What you can do')}")
+    for title, text, steps in tips:
+        print(f"\n  {title}\n  {text}")
+        for number, step in enumerate(steps, 1):
+            print(f"  {number}. {step}")
+    print(f"\n{_('Which graphics cards work?')} kiro-atelier-check --cards")
+    print(f"{_('Get Kiro Atelier on Ko-fi')}: {KOFI_URL}")
+    return {OK: 0, FAIL: 1, WARN: 2}[status]
+
+
+def show_cards_text():
+    """Print the card list for the terminal."""
+    print(_("Which graphics cards work?"))
+    for status, heading, groups in CARD_LIST:
+        print(f"\n{_(heading)}")
+        for title, kind, cards in groups:
+            print(f"  {_(title)}{' · ' + _(kind) if kind else ''}: {_(cards)}")
+    print(f"\n{_(CARD_NOTE)}")
+    return 0
+
+
+# ── Card list ───────────────────────────────────────────────────────
+# What a buyer can check before buying. Rule behind it: NVIDIA, Turing (compute 7.5) or newer, at least 6 GB of video
+# memory; SLOW_CARDS with 6 GB or more get "very slowly". Card names stay English (they are product names); rows
+# with ordinary words in them ("all versions", "and older") are N_() so they get translated, the rest pass _() as is.
+# Checked 2026-11-06 against NVIDIA's spec pages (a Claude agent) and TechPowerUp + ComfyUI source (Copilot review,
+# report kept in CHANGELOG). Only the RTX 2060 6 GB is tested; the list says "meets the requirements", not "works".
+CARD_LIST = [
+    (OK, N_("Meets the requirements"), [
+        ("GeForce RTX 20", N_("Desktop"), "RTX 2060, 2060 12GB, 2060 Super, 2070, 2070 Super, 2080, 2080 Super, "
+                                          "2080 Ti, Titan RTX"),
+        ("GeForce RTX 20", N_("Laptop"), "RTX 2060, 2070, 2070 Super, 2080, 2080 Super (+ Max-Q)"),
+        ("GeForce RTX 30", N_("Desktop"), "RTX 3050 6GB, 3050 8GB, 3060, 3060 Ti, 3070, 3070 Ti, 3080, 3080 Ti, "
+                                          "3090, 3090 Ti"),
+        ("GeForce RTX 30", N_("Laptop"), "RTX 3050 6GB, 3060, 3070, 3070 Ti, 3080, 3080 Ti"),
+        ("GeForce RTX 40", N_("Desktop"), "RTX 4060, 4060 Ti, 4070, 4070 Super, 4070 Ti, 4070 Ti Super, 4080, "
+                                          "4080 Super, 4090"),
+        ("GeForce RTX 40", N_("Laptop"), "RTX 4050, 4060, 4070, 4080, 4090"),
+        ("GeForce RTX 50", N_("Desktop"), "RTX 5050, 5060, 5060 Ti, 5070, 5070 Ti, 5080, 5090"),
+        ("GeForce RTX 50", N_("Laptop"), "RTX 5050, 5060, 5070, 5070 Ti, 5080, 5090"),
+        (N_("Workstation"), N_("Desktop"), "Quadro RTX 4000, 5000, 6000, 8000 · RTX A1000, A2000, A4000, A4500, "
+                                           "A5000, A5500, A6000 · RTX 2000 Ada, 4000 SFF Ada, 4000 Ada, 4500 Ada, "
+                                           "5000 Ada, 6000 Ada · RTX PRO 2000, 4000, 4000 SFF, 4500, 5000, 6000 "
+                                           "Blackwell"),
+        (N_("Workstation"), N_("Laptop"), "Quadro RTX 3000, 4000, 5000, 6000 · RTX A1000 6GB, A2000 8GB, A3000, "
+                                          "A4000, A4500, A5000, A5500 · RTX 1000 Ada, 2000 Ada, 3000 Ada, 3500 Ada, "
+                                          "4000 Ada, 5000 Ada · RTX PRO 500, 1000, 2000, 3000, 4000, 5000 Blackwell"),
+    ]),
+    (WARN, N_("Meets the requirements, but likely slow (not tested)"), [
+        ("GeForce GTX 16", N_("Desktop"), "GTX 1660, 1660 Super, 1660 Ti"),
+        ("GeForce GTX 16", N_("Laptop"), "GTX 1660 Ti"),
+        (N_("Workstation"), N_("Desktop"), "T1000 8GB"),
+    ]),
+    (FAIL, N_("Doesn't work"), [
+        (N_("Less than 6 GB"), N_("of video memory"),
+         N_("GTX 1630, 1650 (all versions) · RTX 2050 · RTX 3050 4GB, 3050 Ti and 3050 A (laptop) · MX series · "
+         "T400, T500, T550, T600, T1000 4GB, T1200, T2000 · RTX A400, A500, A1000 4GB (laptop), A2000 4GB (laptop) · "
+         "RTX 500 Ada")),
+        (N_("Too old"), N_("before the RTX 20 / GTX 16 generation"),
+         N_("GTX 10xx and older (1080 Ti, 1070, 1060 …) · Titan X, Titan Xp, Titan V · Quadro P and M series, "
+            "Quadro GV100")),
+        (N_("Not NVIDIA"), "", N_("AMD Radeon, Intel Arc, graphics built into the processor")),
+    ]),
+]
+CARD_NOTE = N_("Tested on an RTX 2060 (6 GB); the other cards meet the same requirements but haven't been tried. "
+               "Laptop and workstation cards with the same name can have different amounts of video memory, and a "
+               "laptop card paints slower than the desktop card with the same name. KA Check on the PC itself has the "
+               "last word.")
+
+
+def show_cards(parent, app=None):
+    """A window with the card list: works, works slowly, doesn't work."""
+    from gi.repository import Gtk
+
+    window = Gtk.Window(transient_for=parent, application=app, title=_("Which graphics cards work?"),
+                        default_width=820, default_height=640)
+    window.set_icon_name("kiro-atelier-check")
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12, margin_top=20, margin_bottom=8,
+                  margin_start=20, margin_end=20)
+    for status, heading, groups in CARD_LIST:
+        title = Gtk.Box(spacing=10, margin_top=6)
+        mark = Gtk.Label(label={OK: "✔", WARN: "!", FAIL: "✘"}[status])
+        mark.add_css_class(status)
+        mark.add_css_class("section")
+        title.append(mark)
+        name = Gtk.Label(label=_(heading), xalign=0, wrap=True)
+        name.add_css_class("section")
+        title.append(name)
+        box.append(title)
+        card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        card.add_css_class("tip")
+        grid = Gtk.Grid(column_spacing=16, row_spacing=10, margin_top=14, margin_bottom=14, margin_start=18,
+                        margin_end=18)
+        for row, (title, kind, cards) in enumerate(groups):
+            # Product names (GeForce RTX 30) pass through _() unchanged; only the N_() words are in the catalogs.
+            head = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, valign=Gtk.Align.START)
+            label = Gtk.Label(label=_(title), xalign=0, wrap=True, width_chars=16, max_width_chars=18)
+            label.add_css_class("tip-title")
+            head.append(label)
+            if kind:
+                sub = Gtk.Label(label=_(kind), xalign=0, wrap=True, max_width_chars=18)
+                sub.add_css_class("dim-label")
+                head.append(sub)
+            grid.attach(head, 0, row, 1, 1)
+            grid.attach(Gtk.Label(label=_(cards), xalign=0, yalign=0, wrap=True, hexpand=True, max_width_chars=70),
+                        1, row, 1, 1)
+        card.append(grid)
+        box.append(card)
+    note = Gtk.Label(label=_(CARD_NOTE), xalign=0, wrap=True, margin_top=6)
+    note.add_css_class("dim-label")
+    box.append(note)
+    scroller = Gtk.ScrolledWindow(child=box, hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True)
+    close = Gtk.Button(label=_("Close"), halign=Gtk.Align.END, margin_end=20, margin_bottom=16, margin_top=8)
+    close.connect("clicked", lambda _widget: window.close())
+    outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    outer.append(scroller)
+    outer.append(close)
+    window.set_child(outer)
+    window.present()
+
+
+# ── Style gallery ───────────────────────────────────────────────────
+# What Kiro Atelier paints: every ready-made profile on the same 4 photos (exported from KA's tools/style_gallery.py).
+# Next to the script: /usr/bin → /usr/share when installed, usr/bin → usr/share in the source tree.
+GALLERY_DIR = Path(__file__).resolve().parent.parent / "share" / "kiro-atelier-check" / "gallery"
+GALLERY_DESCRIPTIONS = [
+    N_("The original Kiro Atelier look: thick impasto, a good balance between photo and paint."),
+    N_("Loose, heavy impasto with real knife ridges; the photo shows through less. Twice as slow."),
+    N_("Stays close to the photo: same shapes and light, with a soft layer of paint over it."),
+    N_("Best quality for printing or a big screen: extra detail pass, saved as PNG. Slow, large files."),
+    N_("Soft watercolour: light washes, gentle edges, paper texture."),
+    N_("Wild watercolour: colours run and bleed into each other, far from the photo."),
+    N_("Gouache: flat, bold colour shapes like a travel poster."),
+    N_("Soft pastel: chalky strokes and blended light on toned paper."),
+    N_("Japanese woodblock print: clean outlines, flat colours, patterned waves and clouds. "
+       "People and action scenes stay recognisable."),
+    N_("Strongest woodblock look, for landscapes. People and action scenes get replaced."),
+    N_("Woodcut print: bold carved black lines and a few flat colours. Best on landscapes."),
+    N_("Charcoal drawing: smudged black and grey strokes on rough paper, strong contrast."),
+    N_("Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints as fast as 4K."),
+]
+GALLERY_META = [
+    N_("strength 0.65 · impasto · 3840 × 2160"),
+    N_("strength 0.75 · impasto · 3840 × 2160 · detail pass"),
+    N_("strength 0.45 · impasto · 3840 × 2160"),
+    N_("strength 0.55 · impasto · 3840 × 2160 · detail pass"),
+    N_("strength 0.60 · watercolour · 3840 × 2160"),
+    N_("strength 0.75 · watercolour · 3840 × 2160"),
+    N_("strength 0.70 · gouache · 3840 × 2160"),
+    N_("strength 0.60 · pastel · 3840 × 2160"),
+    N_("strength 0.55 · ukiyo-e · 3840 × 2160"),
+    N_("strength 0.65 · ukiyo-e · 3840 × 2160"),
+    N_("strength 0.70 · woodcut · 3840 × 2160"),
+    N_("strength 0.65 · charcoal · 3840 × 2160"),
+    N_("strength 0.60 · impasto · 1920 × 1080"),
+]
+GALLERY_PICTURES = [N_("Mountain lake"), N_("City"), N_("Portrait"), N_("Sea")]
+# The buy card shows one photo in four styles; its caption names them in this order.
+# The mountain lake shows the styles best (2026-11-07); the caption names these styles, change both together.
+HERO_PICTURES = ["original-mountain-lake.jpg", "palette-knife-mountain-lake.jpg", "poster-studio-mountain-lake.jpg",
+                 "edo-landscape-mountain-lake.jpg"]
+KOFI_URL = "https://ko-fi.com/s/6ff5175237"
+
+
+def load_gallery():
+    """The gallery data, or None when it isn't installed."""
+    try:
+        return json.loads((GALLERY_DIR / "gallery.json").read_text())
+    except (OSError, ValueError):
+        return None
+
+
+def show_gallery(parent, data):
+    """A scrolling page with one card per profile; a click shows a painting big, arrow keys move on."""
+    from gi.repository import Gdk, Gtk
+
+    items = []  # (file, caption) in page order
+
+    def viewer(index):
+        window = Gtk.Window(transient_for=gallery, modal=True, title=_("What Kiro Atelier paints"), default_width=1200,
+                            default_height=760)
+        picture = Gtk.Picture(can_shrink=True, content_fit=Gtk.ContentFit.CONTAIN, vexpand=True)
+        caption = Gtk.Label(margin_top=8, margin_bottom=10, wrap=True)
+        at = [index]
+
+        def show():
+            file, text = items[at[0]]
+            picture.set_filename(str(GALLERY_DIR / "view" / file))
+            caption.set_label(_("{caption} ({current} / {total})").format(
+                caption=text, current=at[0] + 1, total=len(items)))
+
+        def on_key(_controller, keyval, _code, _state):
+            if keyval == Gdk.KEY_Escape:
+                window.close()
+            elif keyval in (Gdk.KEY_Right, Gdk.KEY_Down, Gdk.KEY_space, Gdk.KEY_Left, Gdk.KEY_Up):
+                at[0] = (at[0] + (-1 if keyval in (Gdk.KEY_Left, Gdk.KEY_Up) else 1)) % len(items)
+                show()
+            else:
+                return False
+            return True
+        keys = Gtk.EventControllerKey()
+        keys.connect("key-pressed", on_key)
+        window.add_controller(keys)
+        click = Gtk.GestureClick()
+        click.connect("released", lambda *_args: window.close())
+        picture.add_controller(click)
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        box.append(picture)
+        box.append(caption)
+        window.set_child(box)
+        show()
+        window.present()
+
+    def card(title, meta, text, files, captions):
+        outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        outer.add_css_class("tip")
+        inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, margin_top=16, margin_bottom=16,
+                        margin_start=20, margin_end=20)
+        name = Gtk.Label(label=title, xalign=0)
+        name.add_css_class("tip-title")
+        inner.append(name)
+        if meta:
+            line = Gtk.Label(label=meta, xalign=0, wrap=True)
+            line.add_css_class("dim-label")
+            inner.append(line)
+        inner.append(Gtk.Label(label=text, xalign=0, wrap=True))
+        grid = Gtk.Grid(column_spacing=8, column_homogeneous=True, margin_top=4)
+        for column, (file, text_) in enumerate(zip(files, captions)):
+            index = len(items)
+            items.append((file, text_))
+            picture = Gtk.Picture(can_shrink=True, content_fit=Gtk.ContentFit.COVER, tooltip_text=text_,
+                                  hexpand=True, overflow=Gtk.Overflow.HIDDEN)
+            picture.set_filename(str(GALLERY_DIR / "thumb" / file))
+            # A fixed height: the width follows the window and COVER crops a little when it is wide.
+            picture.set_size_request(120, 130)
+            picture.add_css_class("thumb")
+            picture.set_cursor_from_name("zoom-in")
+            press = Gtk.GestureClick()
+            press.connect("released", lambda *_args, index=index: viewer(index))
+            picture.add_controller(press)
+            grid.attach(picture, column, 0, 1, 1)
+        inner.append(grid)
+        outer.append(inner)
+        return outer
+
+    gallery = Gtk.Window(transient_for=parent, title=_("What Kiro Atelier paints"), default_width=1100,
+                         default_height=820)
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14, margin_top=20, margin_bottom=8,
+                  margin_start=20, margin_end=20)
+    intro = Gtk.Label(label=_("Every ready-made style of Kiro Atelier on the same 4 photos. Click a picture to see it "
+                              "big; the arrow keys move on."), xalign=0, wrap=True)
+    intro.add_css_class("dim-label")
+    box.append(intro)
+    titles = [_(title) for title in GALLERY_PICTURES]
+    box.append(card(_("Originals"), "", _("The 4 photos every style below starts from."),
+                    [p["file"] for p in data["pictures"]], titles))
+    for index, profile in enumerate(data["profiles"]):
+        box.append(card(profile["name"], _(GALLERY_META[index]), _(GALLERY_DESCRIPTIONS[index]), profile["files"],
+                        [f"{profile['name']} · {title}" for title in titles]))
+    scroller = Gtk.ScrolledWindow(child=box, hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True)
+    close = Gtk.Button(label=_("Close"), halign=Gtk.Align.END, margin_end=20, margin_bottom=16, margin_top=8)
+    close.connect("clicked", lambda _widget: gallery.close())
+    outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    outer.append(scroller)
+    outer.append(close)
+    gallery.set_child(outer)
+    gallery.present()
+
+
+# ── Window ──────────────────────────────────────────────────────────
+CSS = (b".ok { color: #2ec27e; } .warn { color: #e5a50a; } .fail { color: #e01b24; }"
+       b".verdict { font-size: 1.3em; font-weight: bold; }"
+       b".section { font-size: 1.15em; font-weight: bold; }"
+       b".tip { background-color: alpha(currentColor, 0.06); border-radius: 12px; }"
+       b".tip-title { font-weight: bold; } .thumb { border-radius: 6px; }"
+       b".buy { background-image: linear-gradient(135deg, alpha(#3584e4, 0.20), alpha(#e5a50a, 0.16));"
+       b" border: 1px solid alpha(#3584e4, 0.45); border-radius: 14px; }"
+       b".buy-title { font-size: 1.45em; font-weight: bold; }"
+       b".buy-button { font-size: 1.2em; font-weight: bold; padding: 10px 30px; border-radius: 999px;"
+       b" color: white; background-image: linear-gradient(135deg, #f66151, #e5a50a); }"
+       b".buy-button:hover { background-image: linear-gradient(135deg, #ff7b6b, #f5b82a); }")
+
+
+def _add_css(Gtk):
+    css = Gtk.CssProvider()
+    css.load_from_data(CSS)
+    Gtk.StyleContext.add_provider_for_display(
+        Gtk.Widget.get_display(Gtk.Label()), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+
+def buy_card(Gtk, window, data, can_run):
+    """The Ko-fi offer: one photo in four styles, a short pitch and a big buy button."""
+    card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14, margin_top=8)
+    card.add_css_class("buy")
+    inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14, margin_top=20, margin_bottom=20,
+                    margin_start=24, margin_end=24)
+    title = Gtk.Label(label=_("Your PC is ready: turn your photos into paintings") if can_run
+                      else _("Kiro Atelier: your photos as paintings"), xalign=0, wrap=True)
+    title.add_css_class("buy-title")
+    inner.append(title)
+    inner.append(Gtk.Label(label=_("Kiro Atelier repaints your photos as 4K wallpapers: thick impasto, watercolour, "
+                                   "gouache, pastel, Japanese woodblock print, charcoal and more. It paints on your "
+                                   "own PC, so your photos never leave your home."),
+                           xalign=0, wrap=True, max_width_chars=85))
+    if not can_run:
+        inner.append(Gtk.Label(label=_("Get it once a PC in your home passes this check."), xalign=0, wrap=True))
+    class Photo(Gtk.Picture):
+        # Height follows width, so the photo keeps its shape on any window width. A plain shrinkable
+        # GtkPicture has a minimum height of 0, and a short window squeezed the strip flat.
+        def do_measure(self, orientation, for_size):
+            if orientation == Gtk.Orientation.HORIZONTAL:
+                return 150, 400, -1, -1
+            if for_size <= 0:
+                return (Gtk.Picture.do_measure(self, orientation, 150)[1],
+                        Gtk.Picture.do_measure(self, orientation, 400)[1], -1, -1)
+            natural = Gtk.Picture.do_measure(self, orientation, for_size)[1]
+            return natural, natural, -1, -1
+
+    strip = Gtk.Box(spacing=8, homogeneous=True)
+    for file in HERO_PICTURES:
+        # The big view files: on a wide window the pictures grow past the 400 px thumbnails.
+        path = GALLERY_DIR / "view" / file
+        if path.is_file():
+            picture = Photo(can_shrink=True, content_fit=Gtk.ContentFit.CONTAIN, hexpand=True)
+            picture.set_filename(str(path))
+            picture.add_css_class("thumb")
+            strip.append(picture)
+    if strip.get_first_child():
+        inner.append(strip)
+        caption = Gtk.Label(label=_("One photo, four looks: the original, Palette Knife, Poster Studio and Edo Landscape."),
+                            xalign=0, wrap=True)
+        caption.add_css_class("dim-label")
+        inner.append(caption)
+    buttons = Gtk.Box(spacing=12)
+    buy = Gtk.Button(label=_("Get Kiro Atelier on Ko-fi"))
+    buy.add_css_class("suggested-action")
+    buy.add_css_class("buy-button")
+    buy.set_tooltip_text(KOFI_URL)
+    buy.connect("clicked", lambda _widget: Gtk.UriLauncher.new(KOFI_URL).launch(window, None, None))
+    buttons.append(buy)
+    if data:
+        see = Gtk.Button(label=_("See what Kiro Atelier paints"), valign=Gtk.Align.CENTER)
+        see.connect("clicked", lambda _widget: show_gallery(window, data))
+        buttons.append(see)
+    inner.append(buttons)
+    link = Gtk.LinkButton(uri=KOFI_URL, label=KOFI_URL.removeprefix("https://"), halign=Gtk.Align.START)
+    inner.append(link)
+    card.append(inner)
+    return card
+
+
+def show_cards_window():
+    """Only the card list, as its own window (Kiro Atelier's menu opens it this way)."""
+    import gi
+    gi.require_version("Gtk", "4.0")
+    from gi.repository import Gtk
+
+    def activate(app):
+        _add_css(Gtk)
+        show_cards(None, app)
+
+    # Its own id, so it opens next to a running KA Check window instead of raising that one.
+    app = Gtk.Application(application_id="be.kiroproject.ka-check.cards")
+    app.connect("activate", activate)
+    app.run([sys.argv[0]])
+    return 0
+
+
+def show_window(results):
+    """Show the report in a small GTK 4 window."""
+    import gi
+    gi.require_version("Gtk", "4.0")
+    from gi.repository import Gtk
+
+
+    def activate(app):
+        _add_css(Gtk)
+        window = Gtk.ApplicationWindow(application=app, title="KA Check", default_width=780)
+        window.set_icon_name("kiro-atelier-check")
+        header = Gtk.HeaderBar(title_widget=Gtk.Label(label="KA Check"))
+        language_codes = [None, *available()]
+        language_labels = [_("System ({language})").format(language=language_name(SYSTEM))]
+        language_labels.extend(language_name(code) for code in language_codes[1:])
+        language = Gtk.DropDown.new_from_strings(language_labels)
+        language.set_tooltip_text(_("Language"))
+        language.set_selected(language_codes.index(chosen()))
+        restart = Gtk.Button(label=_("Restart now"), visible=False)
+        restart.add_css_class("suggested-action")
+        header.pack_end(language)
+        header.pack_end(restart)
+        window.set_titlebar(header)
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14, margin_top=20, margin_bottom=20,
+                      margin_start=20, margin_end=20)
+        language_message = Gtk.Label(xalign=0, wrap=True, visible=False)
+        box.append(language_message)
+
+        def on_language(dropdown):
+            code = language_codes[dropdown.get_selected()]
+            save_choice(code)
+            changed = (code or SYSTEM) != (ACTIVE or SYSTEM)
+            language_message.set_text(
+                _("Saved. The new language appears when KA Check starts again.") if changed else "")
+            language_message.set_visible(changed)
+            restart.set_visible(changed)
+
+        def on_restart(_widget):
+            restore_environment()
+            os.execv(sys.executable, [sys.executable, os.path.abspath(sys.argv[0]), *sys.argv[1:]])
+
+        language.connect("notify::selected", lambda dropdown, _pspec: on_language(dropdown))
+        restart.connect("clicked", on_restart)
+        status, line = verdict(results)
+        head = Gtk.Label(label=line, xalign=0, wrap=True)
+        head.add_css_class("verdict")
+        head.add_css_class(status)
+        box.append(head)
+        box.append(Gtk.Label(label=_("Kiro Atelier needs an NVIDIA graphics card with at least 6 GB of video memory "
+                                    "(RTX 20 series or newer), 16 GB of memory and about 20 GB of free disk space. "
+                                    "Nothing was changed on this PC."),
+                             xalign=0, wrap=True, max_width_chars=90))
+        cards = Gtk.Button(label=_("Which graphics cards work?"), halign=Gtk.Align.START)
+        cards.connect("clicked", lambda _widget: show_cards(window))
+        box.append(cards)
+        data = load_gallery()
+        # Can run: the offer comes right under the verdict. Can't: after the tips, once the reader knows what to fix.
+        if status != FAIL:
+            box.append(buy_card(Gtk, window, data, can_run=True))
+        grid = Gtk.Grid(column_spacing=14, row_spacing=8)
+        for row, (title, item_status, detail, more) in enumerate(results):
+            mark = Gtk.Label(label={OK: "✔", WARN: "!", FAIL: "✘"}[item_status], valign=Gtk.Align.START)
+            mark.add_css_class(item_status)
+            check_name = Gtk.Label(label=_(title), xalign=0, valign=Gtk.Align.START)
+            check_name.add_css_class("heading")
+            text = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4, hexpand=True)
+            text.append(Gtk.Label(label=detail, xalign=0, wrap=True, max_width_chars=80))
+            if more:
+                why = Gtk.Label(label=more, xalign=0, wrap=True, max_width_chars=90, margin_start=16)
+                why.add_css_class("dim-label")
+                text.append(Gtk.Expander(label=_("More info"), child=why))
+            grid.attach(mark, 0, row, 1, 1)
+            grid.attach(check_name, 1, row, 1, 1)
+            grid.attach(text, 2, row, 1, 1)
+        box.append(grid)
+        tips = advice(results)
+        if tips:
+            what = Gtk.Label(label=_("What you can do"), xalign=0, margin_top=16)
+            what.add_css_class("section")
+            box.append(what)
+        for title, text, steps in tips:
+            card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+            card.add_css_class("tip")
+            inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10, margin_top=18, margin_bottom=18,
+                            margin_start=22, margin_end=22)
+            heading = Gtk.Label(label=title, xalign=0, wrap=True)
+            heading.add_css_class("tip-title")
+            inner.append(heading)
+            inner.append(Gtk.Label(label=text, xalign=0, wrap=True, max_width_chars=85))
+            for number, step in enumerate(steps, 1):
+                row = Gtk.Box(spacing=10, margin_start=4)
+                badge = Gtk.Label(label=f"{number}.", valign=Gtk.Align.START, width_chars=2, xalign=1)
+                badge.add_css_class("tip-title")
+                row.append(badge)
+                row.append(Gtk.Label(label=step, xalign=0, wrap=True, hexpand=True, max_width_chars=80))
+                inner.append(row)
+            card.append(inner)
+            box.append(card)
+        if status == FAIL:
+            box.append(buy_card(Gtk, window, data, can_run=False))
+        # In a scroller that never scrolls sideways: the labels then wrap at the window's width (a tiling
+        # desktop makes the window wide and GTK otherwise sized it to the longest line, cutting it off).
+        box.set_margin_bottom(0)
+        scroller = Gtk.ScrolledWindow(child=box, hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True,
+                                      propagate_natural_height=True)
+        close = Gtk.Button(label=_("Close"), halign=Gtk.Align.END, margin_end=20, margin_bottom=16, margin_top=8)
+        close.connect("clicked", lambda _widget: window.close())
+        outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        outer.append(scroller)
+        outer.append(close)
+        window.set_child(outer)
+        window.present()
+
+    app = Gtk.Application(application_id="be.kiroproject.ka-check")
+    app.connect("activate", activate)
+    app.run([sys.argv[0]])
+    return {OK: 0, FAIL: 1, WARN: 2}[verdict(results)[0]]
+
+
+def main():
+    """Run the checks and show them in a window, or in the terminal with --text or without a desktop."""
+    desktop = "--text" not in sys.argv and (os.environ.get("WAYLAND_DISPLAY") or os.environ.get("DISPLAY"))
+    if "--cards" in sys.argv:
+        if desktop:
+            try:
+                return show_cards_window()
+            except (ImportError, ValueError):
+                pass
+        return show_cards_text()
+    results = run_checks()
+    if desktop:
+        try:
+            return show_window(results)
+        except (ImportError, ValueError):
+            pass
+    return show_text(results)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

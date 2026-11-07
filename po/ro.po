@@ -1,0 +1,761 @@
+# Romanian translations for kiro-atelier-check package.
+# Copyright (C) 2026 THE kiro-atelier-check'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the kiro-atelier-check package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kiro-atelier-check\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-07 15:02+0100\n"
+"PO-Revision-Date: 2026-11-05 18:01+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+#: usr/bin/kiro-atelier-check:21
+msgid "Linux system"
+msgstr "Sistem Linux"
+
+#: usr/bin/kiro-atelier-check:22
+msgid "Graphics card"
+msgstr "Placă grafică"
+
+#: usr/bin/kiro-atelier-check:23
+msgid "NVIDIA driver"
+msgstr "Driver NVIDIA"
+
+#: usr/bin/kiro-atelier-check:24
+msgid "Card generation"
+msgstr "Generația plăcii"
+
+#: usr/bin/kiro-atelier-check:25
+msgid "Video memory"
+msgstr "Memorie video"
+
+#: usr/bin/kiro-atelier-check:26
+msgid "Memory (RAM)"
+msgstr "Memorie (RAM)"
+
+#: usr/bin/kiro-atelier-check:27
+msgid "Free disk space"
+msgstr "Spațiu liber pe disc"
+
+#: usr/bin/kiro-atelier-check:70 usr/bin/kiro-atelier-check:103
+msgid "No NVIDIA card."
+msgstr "Nicio placă NVIDIA."
+
+#: usr/bin/kiro-atelier-check:71
+msgid "This card is too old (before RTX 20xx / GTX 16xx)."
+msgstr ""
+"Această placă este prea veche (anterioară seriilor RTX 20xx / GTX 16xx)."
+
+#: usr/bin/kiro-atelier-check:72
+msgid "Unknown until the driver works."
+msgstr "Necunoscut până când driverul funcționează."
+
+#: usr/bin/kiro-atelier-check:80
+msgid "Arch-based (pacman), so the Kiro Atelier package installs here."
+msgstr ""
+"Bazat pe Arch (pacman), deci pachetul Kiro Atelier se poate instala aici."
+
+#: usr/bin/kiro-atelier-check:81
+msgid ""
+"Kiro Atelier is a package for Arch-based Linux (Kiro, KiroTux, Arch); this "
+"system has no pacman."
+msgstr ""
+"Kiro Atelier este un pachet pentru Linux bazat pe Arch (Kiro, KiroTux, "
+"Arch); acest sistem nu are pacman."
+
+#: usr/bin/kiro-atelier-check:89
+#, python-brace-format
+msgid "Found: {cards}. "
+msgstr "Plăci găsite: {cards}. "
+
+#: usr/bin/kiro-atelier-check:90
+msgid "No NVIDIA card; painting needs one (AMD and Intel are not supported)."
+msgstr ""
+"Nicio placă NVIDIA; pentru pictare e nevoie de una (AMD și Intel nu sunt "
+"acceptate)."
+
+#: usr/bin/kiro-atelier-check:91
+msgid ""
+"Kiro Atelier paints with Stable Diffusion XL in ComfyUI, on PyTorch with "
+"NVIDIA's CUDA. Intel graphics have no CUDA and share the normal memory, far "
+"too slow and too small for SDXL. AMD cards would need PyTorch for ROCm, "
+"which Kiro Atelier isn't built or tested for. No driver or setting changes "
+"this: it takes an NVIDIA card (RTX 20xx / GTX 16xx or newer, 6 GB) in this "
+"PC, or another Linux PC that has one."
+msgstr ""
+"Kiro Atelier pictează cu Stable Diffusion XL în ComfyUI, pe PyTorch cu CUDA "
+"de la NVIDIA. Grafica Intel nu are CUDA și folosește memoria obișnuită, care "
+"este mult prea lentă și prea mică pentru SDXL. Plăcile AMD ar avea nevoie de "
+"PyTorch pentru ROCm, pentru care Kiro Atelier nu este construit și nici "
+"testat. Niciun driver și nicio setare nu schimbă asta: e nevoie de o placă "
+"NVIDIA (RTX 20xx / GTX 16xx sau mai nouă, 6 GB) în acest PC sau de un alt PC "
+"cu Linux care are una."
+
+#: usr/bin/kiro-atelier-check:101
+#, python-brace-format
+msgid "Driver {version} is working."
+msgstr "Driverul {version} funcționează."
+
+#: usr/bin/kiro-atelier-check:105
+msgid "Not working, and current NVIDIA drivers no longer support this card."
+msgstr ""
+"Nu funcționează, iar driverele NVIDIA actuale nu mai acceptă această placă."
+
+#: usr/bin/kiro-atelier-check:106
+msgid ""
+"NVIDIA's current drivers start at Turing (RTX 20xx / GTX 16xx); older cards "
+"only work with legacy drivers, and even then the card would be too old for "
+"Kiro Atelier (see Card generation)."
+msgstr ""
+"Driverele NVIDIA actuale încep de la Turing (RTX 20xx / GTX 16xx); plăcile "
+"mai vechi funcționează doar cu drivere legacy și chiar și atunci placa ar fi "
+"prea veche pentru Kiro Atelier (vezi Generația plăcii)."
+
+#: usr/bin/kiro-atelier-check:108
+msgid ""
+"The NVIDIA driver is not working (not installed, or not loaded: restart). "
+"Kiro Atelier's Setup can install it; run this check again afterwards."
+msgstr ""
+"Driverul NVIDIA nu funcționează (nu este instalat sau nu este încărcat: "
+"repornește). Configurarea din Kiro Atelier îl poate instala; apoi rulează "
+"din nou această verificare."
+
+#: usr/bin/kiro-atelier-check:132
+#, python-brace-format
+msgid ""
+"Too old: {generation}. Kiro Atelier needs an RTX 20xx / GTX 16xx or newer."
+msgstr ""
+"Prea veche: {generation}. Kiro Atelier are nevoie de o RTX 20xx / GTX 16xx "
+"sau mai nouă."
+
+#: usr/bin/kiro-atelier-check:134
+#, python-brace-format
+msgid ""
+"This card's compute capability is {cap}. The PyTorch build Kiro Atelier "
+"installs (for CUDA 12.8) only contains code for compute 7.5 (Turing) and "
+"newer, so it can't run anything on this card. An older PyTorch build still "
+"supports it, but Kiro Atelier isn't built or tested for that."
+msgstr ""
+"Capacitatea de calcul (compute capability) a acestei plăci este {cap}. "
+"Versiunea de PyTorch pe care o instalează Kiro Atelier (pentru CUDA 12.8) "
+"conține cod doar pentru compute 7.5 (Turing) și mai nou, așa că nu poate "
+"rula nimic pe această placă. O versiune mai veche de PyTorch încă o acceptă, "
+"dar Kiro Atelier nu e făcut și nici testat pentru asta."
+
+#: usr/bin/kiro-atelier-check:139
+#, python-brace-format
+msgid "Supported, but untested and likely slow: {generation}."
+msgstr "Acceptată, dar netestată și probabil lentă: {generation}."
+
+#: usr/bin/kiro-atelier-check:141
+msgid ""
+"ComfyUI treats GTX 16xx and similar cards differently from RTX cards: by "
+"default it doesn't use half precision (fp16) on them, the fast mode RTX "
+"cards paint in. Expect painting to be clearly slower, and some settings may "
+"not finish. Kiro Atelier hasn't been tested on these cards."
+msgstr ""
+"ComfyUI tratează plăcile GTX 16xx și altele asemănătoare altfel decât "
+"plăcile RTX: implicit nu folosește pe ele precizia pe 16 biți (fp16), modul "
+"rapid în care pictează plăcile RTX. Așteaptă-te la o pictare vizibil mai "
+"lentă; unele setări s-ar putea să nu se termine. Kiro Atelier nu a fost "
+"testat pe aceste plăci."
+
+#: usr/bin/kiro-atelier-check:144
+#, python-brace-format
+msgid "Supported: {generation} (compute {cap})."
+msgstr "Acceptată: {generation} (compute {cap})."
+
+#: usr/bin/kiro-atelier-check:154
+#, python-brace-format
+msgid "{gb} GB, too little; painting needs at least {minimum} GB."
+msgstr ""
+"{gb} GB, prea puțin; pentru pictare e nevoie de cel puțin {minimum} GB."
+
+#: usr/bin/kiro-atelier-check:156
+#, python-brace-format
+msgid ""
+"Kiro Atelier is built and tested for at least {minimum} GB of video memory. "
+"ComfyUI has memory-saving modes that may run the painting model (SDXL) on "
+"less, but slowly, and Kiro Atelier isn't tested that way; it can also run "
+"out of memory."
+msgstr ""
+"Kiro Atelier e făcut și testat pentru cel puțin {minimum} GB de memorie "
+"video. ComfyUI are moduri de economisire a memoriei care pot rula modelul de "
+"pictură (SDXL) și cu mai puțin, dar încet, iar Kiro Atelier nu e testat așa; "
+"memoria se poate și epuiza."
+
+#: usr/bin/kiro-atelier-check:159 usr/bin/kiro-atelier-check:174
+#, python-brace-format
+msgid "{gb} GB."
+msgstr "{gb} GB."
+
+#: usr/bin/kiro-atelier-check:167
+#, python-brace-format
+msgid "{gb} GB; Kiro Atelier needs 16 GB."
+msgstr "{gb} GB; Kiro Atelier are nevoie de 16 GB."
+
+#: usr/bin/kiro-atelier-check:168
+msgid ""
+"While painting, ComfyUI keeps the SDXL model, the upscaler and the naming "
+"model in normal memory next to the graphics card: about 10 GB. With less, "
+"the PC swaps to disk or stops with an out-of-memory error."
+msgstr ""
+"În timpul pictării, ComfyUI ține modelul SDXL, instrumentul de mărire și "
+"modelul de denumire în memoria obișnuită, pe lângă placa grafică: "
+"aproximativ 10 GB. Cu mai puțin, PC-ul folosește swap pe disc sau se oprește "
+"cu o eroare de memorie insuficientă."
+
+#: usr/bin/kiro-atelier-check:172
+#, python-brace-format
+msgid ""
+"{gb} GB; it runs, but 16 GB is advised (expect swapping, close the browser "
+"while painting)."
+msgstr ""
+"{gb} GB; funcționează, dar se recomandă 16 GB (așteaptă-te la swap; închide "
+"browserul în timp ce pictezi)."
+
+#: usr/bin/kiro-atelier-check:181
+#, python-brace-format
+msgid "{gb} GB free in your home folder; about {needed} GB is needed."
+msgstr ""
+"{gb} GB liberi în dosarul tău personal; e nevoie de aproximativ {needed} GB."
+
+#: usr/bin/kiro-atelier-check:183
+msgid ""
+"ComfyUI and PyTorch take about 6 GB, the painting models (SDXL, its VAE, the "
+"upscaler, the naming model) about 7.5 GB, and the paintings themselves need "
+"room too."
+msgstr ""
+"ComfyUI și PyTorch ocupă aproximativ 6 GB, modelele de pictură (SDXL, VAE-ul "
+"său, instrumentul de mărire, modelul de denumire) aproximativ 7,5 GB, iar "
+"picturile au și ele nevoie de spațiu."
+
+#: usr/bin/kiro-atelier-check:185
+#, python-brace-format
+msgid "{gb} GB free in your home folder."
+msgstr "{gb} GB liberi în dosarul tău personal."
+
+#: usr/bin/kiro-atelier-check:205
+msgid "Use an Arch-based Linux system"
+msgstr "Folosește un sistem Linux bazat pe Arch"
+
+#: usr/bin/kiro-atelier-check:206
+msgid ""
+"Kiro Atelier is a package for Arch-based Linux: Kiro, KiroTux or Arch itself."
+msgstr ""
+"Kiro Atelier este un pachet pentru Linux bazat pe Arch: Kiro, KiroTux sau "
+"Arch însuși."
+
+#: usr/bin/kiro-atelier-check:208
+msgid "Install the NVIDIA driver"
+msgstr "Instalează driverul NVIDIA"
+
+#: usr/bin/kiro-atelier-check:209
+msgid "The card is fine, only its driver is missing or not loaded."
+msgstr "Placa este în regulă, doar driverul lipsește sau nu este încărcat."
+
+#: usr/bin/kiro-atelier-check:210
+msgid "Install the driver (on Kiro: run kiro-hwd)."
+msgstr "Instalează driverul (pe Kiro: rulează kiro-hwd)."
+
+#: usr/bin/kiro-atelier-check:210
+msgid "Restart the PC."
+msgstr "Repornește PC-ul."
+
+#: usr/bin/kiro-atelier-check:210
+msgid "Run KA Check again."
+msgstr "Rulează din nou KA Check."
+
+#: usr/bin/kiro-atelier-check:212
+msgid "Let another PC do the painting"
+msgstr "Lasă alt PC să picteze"
+
+#: usr/bin/kiro-atelier-check:213
+msgid ""
+"Kiro Atelier on this PC can send the wallpapers to another PC in your home "
+"and get the paintings back. That PC does the painting, so it needs the "
+"NVIDIA card. Only an Arch-based Linux PC (Kiro, KiroTux, Arch) is supported "
+"for that; Windows and Mac aren't."
+msgstr ""
+"Kiro Atelier de pe acest PC poate trimite imaginile de fundal la un alt PC "
+"din casa ta și poate primi înapoi picturile. Acel PC pictează, deci el are "
+"nevoie de placa NVIDIA. Pentru asta este acceptat doar un PC cu Linux bazat "
+"pe Arch (Kiro, KiroTux, Arch); Windows și Mac nu sunt acceptate."
+
+#: usr/bin/kiro-atelier-check:216
+msgid ""
+"Run KA Check on the other PC: it must say \"This PC can run Kiro Atelier.\""
+msgstr ""
+"Rulează KA Check pe celălalt PC: trebuie să afișeze \"Acest PC poate rula "
+"Kiro Atelier.\""
+
+#: usr/bin/kiro-atelier-check:217
+msgid "Install Kiro Atelier on both PCs."
+msgstr "Instalează Kiro Atelier pe ambele PC-uri."
+
+#: usr/bin/kiro-atelier-check:218
+msgid ""
+"On this PC, open Settings and choose \"ComfyUI runs on: Another computer\"."
+msgstr ""
+"Pe acest PC, deschide Setări și alege \"ComfyUI rulează pe: Alt computer\"."
+
+#: usr/bin/kiro-atelier-check:220
+msgid "Expect slow paintings"
+msgstr "Așteaptă-te la picturi lente"
+
+#: usr/bin/kiro-atelier-check:221
+msgid ""
+"This card meets the requirements, but Kiro Atelier hasn't been tested on it "
+"and painting is likely to be much slower than on an RTX card. An RTX card "
+"with 6 GB of video memory or more is the safe choice."
+msgstr ""
+"Această placă îndeplinește cerințele, dar Kiro Atelier nu a fost testat pe "
+"ea, iar pictarea va fi probabil mult mai lentă decât pe o placă RTX. O placă "
+"RTX cu cel puțin 6 GB de memorie video e alegerea sigură."
+
+#: usr/bin/kiro-atelier-check:225
+msgid "Add memory"
+msgstr "Adaugă memorie"
+
+#: usr/bin/kiro-atelier-check:225
+msgid "Painting on this PC needs 16 GB of memory."
+msgstr "Pentru a picta pe acest PC ai nevoie de 16 GB de memorie."
+
+#: usr/bin/kiro-atelier-check:227
+msgid "Close the browser and other big programs while painting."
+msgstr "Închide browserul și alte programe mari în timp ce pictezi."
+
+#: usr/bin/kiro-atelier-check:227
+msgid "Keep memory free"
+msgstr "Păstrează memorie liberă"
+
+#: usr/bin/kiro-atelier-check:229
+msgid "Free up disk space"
+msgstr "Eliberează spațiu pe disc"
+
+#: usr/bin/kiro-atelier-check:230
+#, python-brace-format
+msgid "Make room in your home folder until about {needed} GB is free."
+msgstr ""
+"Eliberează spațiu în dosarul tău personal până ai aproximativ {needed} GB "
+"liberi."
+
+#: usr/bin/kiro-atelier-check:237
+msgid "This PC can't run Kiro Atelier."
+msgstr "Acest PC nu poate rula Kiro Atelier."
+
+#: usr/bin/kiro-atelier-check:239
+msgid "This PC can run Kiro Atelier, with the warning below."
+msgstr "Acest PC poate rula Kiro Atelier, cu avertismentul de mai jos."
+
+#: usr/bin/kiro-atelier-check:240
+msgid "This PC can run Kiro Atelier."
+msgstr "Acest PC poate rula Kiro Atelier."
+
+#: usr/bin/kiro-atelier-check:259
+msgid "KA Check: can this PC run Kiro Atelier?\n"
+msgstr "KA Check: poate acest PC să ruleze Kiro Atelier?\n"
+
+#: usr/bin/kiro-atelier-check:269 usr/bin/kiro-atelier-check:714
+msgid "What you can do"
+msgstr "Ce poți face"
+
+#
+#: usr/bin/kiro-atelier-check:274 usr/bin/kiro-atelier-check:281
+#: usr/bin/kiro-atelier-check:343 usr/bin/kiro-atelier-check:689
+msgid "Which graphics cards work?"
+msgstr "Ce plăci grafice funcționează?"
+
+#
+#: usr/bin/kiro-atelier-check:275 usr/bin/kiro-atelier-check:603
+msgid "Get Kiro Atelier on Ko-fi"
+msgstr "Ia Kiro Atelier de pe Ko-fi"
+
+#: usr/bin/kiro-atelier-check:297
+msgid "Meets the requirements"
+msgstr "Îndeplinește cerințele"
+
+#: usr/bin/kiro-atelier-check:298 usr/bin/kiro-atelier-check:301
+#: usr/bin/kiro-atelier-check:304 usr/bin/kiro-atelier-check:307
+#: usr/bin/kiro-atelier-check:309 usr/bin/kiro-atelier-check:318
+#: usr/bin/kiro-atelier-check:320
+msgid "Desktop"
+msgstr "Desktop"
+
+#: usr/bin/kiro-atelier-check:300 usr/bin/kiro-atelier-check:303
+#: usr/bin/kiro-atelier-check:306 usr/bin/kiro-atelier-check:308
+#: usr/bin/kiro-atelier-check:313 usr/bin/kiro-atelier-check:319
+msgid "Laptop"
+msgstr "Laptop"
+
+#: usr/bin/kiro-atelier-check:309 usr/bin/kiro-atelier-check:313
+#: usr/bin/kiro-atelier-check:320
+msgid "Workstation"
+msgstr "Stație de lucru"
+
+#: usr/bin/kiro-atelier-check:317
+msgid "Meets the requirements, but likely slow (not tested)"
+msgstr "Îndeplinește cerințele, dar probabil lentă (netestată)"
+
+#: usr/bin/kiro-atelier-check:322
+msgid "Doesn't work"
+msgstr "Nu funcționează"
+
+#: usr/bin/kiro-atelier-check:323
+msgid "Less than 6 GB"
+msgstr "Sub 6 GB"
+
+#
+#: usr/bin/kiro-atelier-check:323
+msgid "of video memory"
+msgstr "memorie video"
+
+#: usr/bin/kiro-atelier-check:324
+msgid ""
+"GTX 1630, 1650 (all versions) · RTX 2050 · RTX 3050 4GB, 3050 Ti and 3050 A "
+"(laptop) · MX series · T400, T500, T550, T600, T1000 4GB, T1200, T2000 · RTX "
+"A400, A500, A1000 4GB (laptop), A2000 4GB (laptop) · RTX 500 Ada"
+msgstr ""
+"GTX 1630, 1650 (toate versiunile) · RTX 2050 · RTX 3050 4GB, 3050 Ti și 3050 "
+"A (laptop) · seria MX · T400, T500, T550, T600, T1000 4GB, T1200, T2000 · "
+"RTX A400, A500, A1000 4GB (laptop), A2000 4GB (laptop) · RTX 500 Ada"
+
+#: usr/bin/kiro-atelier-check:327
+msgid "Too old"
+msgstr "Prea veche"
+
+#: usr/bin/kiro-atelier-check:327
+msgid "before the RTX 20 / GTX 16 generation"
+msgstr "dinaintea generației RTX 20 / GTX 16"
+
+#: usr/bin/kiro-atelier-check:328
+msgid ""
+"GTX 10xx and older (1080 Ti, 1070, 1060 …) · Titan X, Titan Xp, Titan V · "
+"Quadro P and M series, Quadro GV100"
+msgstr ""
+"GTX 10xx și mai vechi (1080 Ti, 1070, 1060 …) · Titan X, Titan Xp, Titan V · "
+"seriile Quadro P și M, Quadro GV100"
+
+#: usr/bin/kiro-atelier-check:330
+msgid "AMD Radeon, Intel Arc, graphics built into the processor"
+msgstr "AMD Radeon, Intel Arc, grafică integrată în procesor"
+
+#
+#: usr/bin/kiro-atelier-check:330
+msgid "Not NVIDIA"
+msgstr "Nu e NVIDIA"
+
+#: usr/bin/kiro-atelier-check:333
+msgid ""
+"Tested on an RTX 2060 (6 GB); the other cards meet the same requirements but "
+"haven't been tried. Laptop and workstation cards with the same name can have "
+"different amounts of video memory, and a laptop card paints slower than the "
+"desktop card with the same name. KA Check on the PC itself has the last word."
+msgstr ""
+"Testat pe o RTX 2060 (6 GB); celelalte plăci îndeplinesc aceleași cerințe, "
+"dar nu au fost încercate. Plăcile video pentru laptop și stație de lucru cu "
+"același nume pot avea cantități diferite de memorie video, iar o placă video "
+"pentru laptop pictează mai încet decât placa video pentru desktop cu același "
+"nume. Verdictul final îl dă KA Check rulat chiar pe PC."
+
+#: usr/bin/kiro-atelier-check:381 usr/bin/kiro-atelier-check:529
+#: usr/bin/kiro-atelier-check:742
+msgid "Close"
+msgstr "Închide"
+
+#: usr/bin/kiro-atelier-check:395
+msgid ""
+"The original Kiro Atelier look: thick impasto, a good balance between photo "
+"and paint."
+msgstr ""
+"Aspectul original de la Kiro Atelier: impasto gros, un echilibru bun între "
+"fotografie și pictură."
+
+#: usr/bin/kiro-atelier-check:396
+msgid ""
+"Loose, heavy impasto with real knife ridges; the photo shows through less. "
+"Twice as slow."
+msgstr ""
+"Impasto dens, aplicat în tușe libere, cu urme reliefate de cuțit; fotografia "
+"se vede mai puțin. Durează de două ori mai mult."
+
+#: usr/bin/kiro-atelier-check:397
+msgid ""
+"Stays close to the photo: same shapes and light, with a soft layer of paint "
+"over it."
+msgstr ""
+"Rămâne aproape de fotografie: aceleași forme și lumină, acoperite de un "
+"strat fin de vopsea."
+
+#: usr/bin/kiro-atelier-check:398
+msgid ""
+"Best quality for printing or a big screen: extra detail pass, saved as PNG. "
+"Slow, large files."
+msgstr ""
+"Calitate maximă pentru tipărire sau un ecran mare: trecere suplimentară "
+"pentru detalii, cu salvare în PNG. Lent, fișiere mari."
+
+#: usr/bin/kiro-atelier-check:399
+msgid "Soft watercolour: light washes, gentle edges, paper texture."
+msgstr ""
+"Acuarelă delicată: straturi ușoare, contururi delicate, textură de hârtie."
+
+#: usr/bin/kiro-atelier-check:400
+msgid ""
+"Wild watercolour: colours run and bleed into each other, far from the photo."
+msgstr ""
+"Acuarelă liberă: culorile curg și se amestecă, îndepărtându-se de fotografie."
+
+#: usr/bin/kiro-atelier-check:401
+msgid "Gouache: flat, bold colour shapes like a travel poster."
+msgstr "Guașă: forme plate, cu culori îndrăznețe, ca pe un afiș turistic."
+
+#: usr/bin/kiro-atelier-check:402
+msgid "Soft pastel: chalky strokes and blended light on toned paper."
+msgstr "Pastel delicat: tușe cretoase și lumini estompate pe hârtie colorată."
+
+#: usr/bin/kiro-atelier-check:403
+msgid ""
+"Japanese woodblock print: clean outlines, flat colours, patterned waves and "
+"clouds. People and action scenes stay recognisable."
+msgstr ""
+"Gravură japoneză în lemn: contururi clare, culori plate, valuri și nori cu "
+"modele. Poți recunoaște în continuare oamenii și scenele de acțiune."
+
+#: usr/bin/kiro-atelier-check:405
+msgid ""
+"Strongest woodblock look, for landscapes. People and action scenes get "
+"replaced."
+msgstr ""
+"Cel mai puternic efect de gravură în lemn, pentru peisaje. Oamenii sunt "
+"înlocuiți, la fel și scenele de acțiune."
+
+#: usr/bin/kiro-atelier-check:406
+msgid ""
+"Woodcut print: bold carved black lines and a few flat colours. Best on "
+"landscapes."
+msgstr ""
+"Gravură în lemn: linii negre puternice, sculptate, și câteva culori plate. "
+"Potrivită mai ales peisajelor."
+
+#: usr/bin/kiro-atelier-check:407
+msgid ""
+"Charcoal drawing: smudged black and grey strokes on rough paper, strong "
+"contrast."
+msgstr ""
+"Desen în cărbune: tușe negre și gri estompate pe hârtie aspră, cu contrast "
+"puternic."
+
+#: usr/bin/kiro-atelier-check:408
+msgid ""
+"Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints "
+"as fast as 4K."
+msgstr ""
+"Impasto la 1920 × 1080: fișiere mici pentru un laptop sau un al doilea "
+"ecran. Pictează la fel de repede ca în 4K."
+
+#: usr/bin/kiro-atelier-check:411
+msgid "strength 0.65 · impasto · 3840 × 2160"
+msgstr "intensitate 0.65 · impasto · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:412
+msgid "strength 0.75 · impasto · 3840 × 2160 · detail pass"
+msgstr "intensitate 0.75 · impasto · 3840 × 2160 · detaliere suplimentară"
+
+#: usr/bin/kiro-atelier-check:413
+msgid "strength 0.45 · impasto · 3840 × 2160"
+msgstr "intensitate 0.45 · impasto · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:414
+msgid "strength 0.55 · impasto · 3840 × 2160 · detail pass"
+msgstr "intensitate 0.55 · impasto · 3840 × 2160 · detaliere suplimentară"
+
+#: usr/bin/kiro-atelier-check:415
+msgid "strength 0.60 · watercolour · 3840 × 2160"
+msgstr "intensitate 0.60 · acuarelă · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:416
+msgid "strength 0.75 · watercolour · 3840 × 2160"
+msgstr "intensitate 0.75 · acuarelă · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:417
+msgid "strength 0.70 · gouache · 3840 × 2160"
+msgstr "intensitate 0.70 · guașă · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:418
+msgid "strength 0.60 · pastel · 3840 × 2160"
+msgstr "intensitate 0.60 · pastel · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:419
+msgid "strength 0.55 · ukiyo-e · 3840 × 2160"
+msgstr "intensitate 0.55 · ukiyo-e · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:420
+msgid "strength 0.65 · ukiyo-e · 3840 × 2160"
+msgstr "intensitate 0.65 · ukiyo-e · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:421
+msgid "strength 0.70 · woodcut · 3840 × 2160"
+msgstr "intensitate 0.70 · gravură în lemn · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:422
+msgid "strength 0.65 · charcoal · 3840 × 2160"
+msgstr "intensitate 0.65 · cărbune · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:423
+msgid "strength 0.60 · impasto · 1920 × 1080"
+msgstr "intensitate 0.60 · impasto · 1920 × 1080"
+
+#: usr/bin/kiro-atelier-check:425
+msgid "City"
+msgstr "Oraș"
+
+#: usr/bin/kiro-atelier-check:425
+msgid "Mountain lake"
+msgstr "Lac de munte"
+
+#: usr/bin/kiro-atelier-check:425
+msgid "Portrait"
+msgstr "Portret"
+
+#: usr/bin/kiro-atelier-check:425
+msgid "Sea"
+msgstr "Mare"
+
+#: usr/bin/kiro-atelier-check:448 usr/bin/kiro-atelier-check:514
+msgid "What Kiro Atelier paints"
+msgstr "Ce pictează Kiro Atelier"
+
+#: usr/bin/kiro-atelier-check:457
+#, python-brace-format
+msgid "{caption} ({current} / {total})"
+msgstr "{caption} ({current} / {total})"
+
+#: usr/bin/kiro-atelier-check:518
+msgid ""
+"Every ready-made style of Kiro Atelier on the same 4 photos. Click a picture "
+"to see it big; the arrow keys move on."
+msgstr ""
+"Fiecare stil predefinit din Kiro Atelier pe aceleași 4 fotografii. Fă clic "
+"pe o imagine ca s-o vezi mare; folosește tastele săgeți pentru a naviga."
+
+#: usr/bin/kiro-atelier-check:523
+msgid "Originals"
+msgstr "Originale"
+
+#: usr/bin/kiro-atelier-check:523
+msgid "The 4 photos every style below starts from."
+msgstr "Cele 4 fotografii de la care pornește fiecare stil de mai jos."
+
+#: usr/bin/kiro-atelier-check:565
+msgid "Your PC is ready: turn your photos into paintings"
+msgstr "PC-ul tău e pregătit: transformă-ți fotografiile în picturi"
+
+#
+#: usr/bin/kiro-atelier-check:566
+msgid "Kiro Atelier: your photos as paintings"
+msgstr "Kiro Atelier: fotografiile tale ca picturi"
+
+#: usr/bin/kiro-atelier-check:569
+msgid ""
+"Kiro Atelier repaints your photos as 4K wallpapers: thick impasto, "
+"watercolour, gouache, pastel, Japanese woodblock print, charcoal and more. "
+"It paints on your own PC, so your photos never leave your home."
+msgstr ""
+"Kiro Atelier îți repictează fotografiile ca imagini de fundal 4K: impasto "
+"gros, acuarelă, guașă, pastel, gravură japoneză în lemn, cărbune și altele. "
+"Pictează pe propriul tău PC, așa că fotografiile tale nu îți părăsesc "
+"niciodată casa."
+
+#: usr/bin/kiro-atelier-check:574
+msgid "Get it once a PC in your home passes this check."
+msgstr "Ia-l după ce un PC din casa ta trece această verificare."
+
+#: usr/bin/kiro-atelier-check:598
+msgid ""
+"One photo, four looks: the original, Palette Knife, Poster Studio and Edo "
+"Landscape."
+msgstr ""
+"O fotografie, patru stiluri: originalul, Palette Knife, Poster Studio și Edo "
+"Landscape."
+
+#: usr/bin/kiro-atelier-check:610
+msgid "See what Kiro Atelier paints"
+msgstr "Vezi ce pictează Kiro Atelier"
+
+#: usr/bin/kiro-atelier-check:650
+#, python-brace-format
+msgid "System ({language})"
+msgstr "Sistem ({language})"
+
+#: usr/bin/kiro-atelier-check:653
+msgid "Language"
+msgstr "Limbă"
+
+#: usr/bin/kiro-atelier-check:655
+msgid "Restart now"
+msgstr "Repornește acum"
+
+#: usr/bin/kiro-atelier-check:670
+msgid "Saved. The new language appears when KA Check starts again."
+msgstr "Salvat. Noua limbă apare la următoarea pornire a KA Check."
+
+#
+#: usr/bin/kiro-atelier-check:685
+msgid ""
+"Kiro Atelier needs an NVIDIA graphics card with at least 6 GB of video "
+"memory (RTX 20 series or newer), 16 GB of memory and about 20 GB of free "
+"disk space. Nothing was changed on this PC."
+msgstr ""
+"Kiro Atelier are nevoie de o placă grafică NVIDIA cu cel puțin 6 GB de "
+"memorie video (seria RTX 20 sau mai nouă), 16 GB de memorie și aproximativ "
+"20 GB de spațiu liber pe disc. Nimic nu a fost schimbat pe acest PC."
+
+#: usr/bin/kiro-atelier-check:707
+msgid "More info"
+msgstr "Mai multe informații"
+
+#: po/kiro-atelier-check.desktop.in:3
+msgid "KA Check"
+msgstr "KA Check"
+
+#: po/kiro-atelier-check.desktop.in:4
+msgid "Can this PC run Kiro Atelier?"
+msgstr "Poate acest PC să ruleze Kiro Atelier?"
+
+#: po/kiro-atelier-check.desktop.in:5
+msgid "Checks whether this PC can run Kiro Atelier; changes nothing"
+msgstr "Verifică dacă acest PC poate rula Kiro Atelier; nu modifică nimic"
+
+#: po/kiro-atelier-check.desktop.in:6
+msgid "kiro;atelier;check;nvidia;requirements;"
+msgstr ""
+"kiro;atelier;check;nvidia;requirements;verificare;cerințe;placă grafică;"
+
+#~ msgid "Sunset shore"
+#~ msgstr "Țărm la apus"
+
+#, python-brace-format
+#~ msgid ""
+#~ "The painting model (SDXL) needs about {minimum} GB of video memory. With "
+#~ "less, ComfyUI can only run it in its low-memory mode, which keeps moving "
+#~ "parts of the model between video memory and normal memory: an estimated 5–"
+#~ "10 minutes or more per painting instead of 1–2."
+#~ msgstr ""
+#~ "Modelul de pictură (SDXL) are nevoie de aproximativ {minimum} GB de "
+#~ "memorie video. Cu mai puțin, ComfyUI îl poate rula doar în modul cu "
+#~ "memorie redusă, care mută continuu părți ale modelului între memoria "
+#~ "video și memoria obișnuită: aproximativ 5–10 minute sau mai mult pe "
+#~ "pictură, în loc de 1–2."
+
+#~ msgid "Cat in snow"
+#~ msgstr "Pisică în zăpadă"

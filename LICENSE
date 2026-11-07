@@ -1,0 +1,21 @@
+KA Check (Kiro Atelier Check) — Freeware Licence 1.0
+Copyright (c) 2026 Erik Dubois. All rights reserved.
+
+KA Check tells whether a computer can run Kiro Atelier. It is free.
+
+You may, at no cost:
+- download, install and run it on any number of computers;
+- redistribute it unchanged, as the original package or source, for example in a package repository,
+  a mirror or a Linux installation image, as long as this licence goes with it.
+
+You may not:
+- distribute a modified version, or present your own version as KA Check;
+- sell it, or charge for it on its own (a repository or image that carries it for free is fine).
+
+The photos in the style gallery are public domain or CC0 (see the source list in the Kiro Atelier
+repository); the paintings made from them are part of KA Check and fall under this licence.
+
+KA Check is provided "as is", without any warranty. It only reads information about the computer and
+changes nothing; the author is not liable for any damage arising from its use.
+
+Kiro Atelier itself has its own licence (EULA); this licence covers KA Check only.

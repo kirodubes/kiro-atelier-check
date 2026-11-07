@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=KA Check
+GenericName=Can this PC run Kiro Atelier?
+Comment=Checks whether this PC can run Kiro Atelier; changes nothing
+Keywords=kiro;atelier;check;nvidia;requirements;
+Exec=/usr/bin/kiro-atelier-check
+Icon=kiro-atelier-check
+Terminal=false
+StartupNotify=true
+StartupWMClass=be.kiroproject.ka-check
+Categories=GTK;System;X-Kiro-Apps;

@@ -1,0 +1,165 @@
+{
+ "pictures": [
+  {
+   "title": "Mountain lake",
+   "file": "original-mountain-lake.jpg"
+  },
+  {
+   "title": "City",
+   "file": "original-city.jpg"
+  },
+  {
+   "title": "Portrait",
+   "file": "original-portrait.jpg"
+  },
+  {
+   "title": "Sea",
+   "file": "original-sea.jpg"
+  }
+ ],
+ "profiles": [
+  {
+   "name": "Default",
+   "description": "The original Kiro Atelier look: thick impasto, a good balance between photo and paint.",
+   "meta": "strength 0.65 · impasto · 3840 × 2160",
+   "files": [
+    "default-mountain-lake.jpg",
+    "default-city.jpg",
+    "default-portrait.jpg",
+    "default-sea.jpg"
+   ]
+  },
+  {
+   "name": "Palette Knife",
+   "description": "Loose, heavy impasto with real knife ridges; the photo shows through less. Twice as slow.",
+   "meta": "strength 0.75 · impasto · 3840 × 2160 · detail pass",
+   "files": [
+    "palette-knife-mountain-lake.jpg",
+    "palette-knife-city.jpg",
+    "palette-knife-portrait.jpg",
+    "palette-knife-sea.jpg"
+   ]
+  },
+  {
+   "name": "Gentle Touch",
+   "description": "Stays close to the photo: same shapes and light, with a soft layer of paint over it.",
+   "meta": "strength 0.45 · impasto · 3840 × 2160",
+   "files": [
+    "gentle-touch-mountain-lake.jpg",
+    "gentle-touch-city.jpg",
+    "gentle-touch-portrait.jpg",
+    "gentle-touch-sea.jpg"
+   ]
+  },
+  {
+   "name": "Gallery Print",
+   "description": "Best quality for printing or a big screen: extra detail pass, saved as PNG. Slow, large files.",
+   "meta": "strength 0.55 · impasto · 3840 × 2160 · detail pass",
+   "files": [
+    "gallery-print-mountain-lake.jpg",
+    "gallery-print-city.jpg",
+    "gallery-print-portrait.jpg",
+    "gallery-print-sea.jpg"
+   ]
+  },
+  {
+   "name": "Morning Wash",
+   "description": "Soft watercolour: light washes, gentle edges, paper texture.",
+   "meta": "strength 0.60 · watercolour · 3840 × 2160",
+   "files": [
+    "morning-wash-mountain-lake.jpg",
+    "morning-wash-city.jpg",
+    "morning-wash-portrait.jpg",
+    "morning-wash-sea.jpg"
+   ]
+  },
+  {
+   "name": "Monsoon",
+   "description": "Wild watercolour: colours run and bleed into each other, far from the photo.",
+   "meta": "strength 0.75 · watercolour · 3840 × 2160",
+   "files": [
+    "monsoon-mountain-lake.jpg",
+    "monsoon-city.jpg",
+    "monsoon-portrait.jpg",
+    "monsoon-sea.jpg"
+   ]
+  },
+  {
+   "name": "Poster Studio",
+   "description": "Gouache: flat, bold colour shapes like a travel poster.",
+   "meta": "strength 0.70 · gouache · 3840 × 2160",
+   "files": [
+    "poster-studio-mountain-lake.jpg",
+    "poster-studio-city.jpg",
+    "poster-studio-portrait.jpg",
+    "poster-studio-sea.jpg"
+   ]
+  },
+  {
+   "name": "Pastel Light",
+   "description": "Soft pastel: chalky strokes and blended light on toned paper.",
+   "meta": "strength 0.60 · pastel · 3840 × 2160",
+   "files": [
+    "pastel-light-mountain-lake.jpg",
+    "pastel-light-city.jpg",
+    "pastel-light-portrait.jpg",
+    "pastel-light-sea.jpg"
+   ]
+  },
+  {
+   "name": "Floating World",
+   "description": "Japanese woodblock print: clean outlines, flat colours, patterned waves and clouds. People and action scenes stay recognisable.",
+   "meta": "strength 0.55 · ukiyo-e · 3840 × 2160",
+   "files": [
+    "floating-world-mountain-lake.jpg",
+    "floating-world-city.jpg",
+    "floating-world-portrait.jpg",
+    "floating-world-sea.jpg"
+   ]
+  },
+  {
+   "name": "Edo Landscape",
+   "description": "Strongest woodblock look, for landscapes. People and action scenes get replaced.",
+   "meta": "strength 0.65 · ukiyo-e · 3840 × 2160",
+   "files": [
+    "edo-landscape-mountain-lake.jpg",
+    "edo-landscape-city.jpg",
+    "edo-landscape-portrait.jpg",
+    "edo-landscape-sea.jpg"
+   ]
+  },
+  {
+   "name": "Linocut",
+   "description": "Woodcut print: bold carved black lines and a few flat colours. Best on landscapes.",
+   "meta": "strength 0.70 · woodcut · 3840 × 2160",
+   "files": [
+    "linocut-mountain-lake.jpg",
+    "linocut-city.jpg",
+    "linocut-portrait.jpg",
+    "linocut-sea.jpg"
+   ]
+  },
+  {
+   "name": "Charcoal Sketch",
+   "description": "Charcoal drawing: smudged black and grey strokes on rough paper, strong contrast.",
+   "meta": "strength 0.65 · charcoal · 3840 × 2160",
+   "files": [
+    "charcoal-sketch-mountain-lake.jpg",
+    "charcoal-sketch-city.jpg",
+    "charcoal-sketch-portrait.jpg",
+    "charcoal-sketch-sea.jpg"
+   ]
+  },
+  {
+   "name": "Light Files",
+   "description": "Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints as fast as 4K.",
+   "meta": "strength 0.60 · impasto · 1920 × 1080",
+   "files": [
+    "light-files-mountain-lake.jpg",
+    "light-files-city.jpg",
+    "light-files-portrait.jpg",
+    "light-files-sea.jpg"
+   ]
+  }
+ ]
+}
