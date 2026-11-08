@@ -405,6 +405,15 @@ GALLERY_DESCRIPTIONS = [
     N_("Strongest woodblock look, for landscapes. People and action scenes get replaced."),
     N_("Woodcut print: bold carved black lines and a few flat colours. Best on landscapes."),
     N_("Charcoal drawing: smudged black and grey strokes on rough paper, strong contrast."),
+    N_("Raw, emotional brushwork in bold, unusual colours. Shapes stay, colours go wild."),
+    N_("Swirling patterns and vibrant colour, far from the photo."),
+    N_("Old-master oil on panel. Reimagines the scene: expect new buildings and people."),
+    N_("Surrealist dream: strange objects appear where you don't expect them."),
+    N_("Geometric shapes, gold accents and bold colour. Reimagines the scene."),
+    N_("Stacked papercut: cut paper layers with depth and strong contrast."),
+    N_("Layered paper silhouettes lit from behind. Adds trees, moons and figures of its own."),
+    N_("Curled paper strips, coils and loops. Landscapes keep their shape; animals turn into ornaments."),
+    N_("Folded paper: crisp facets and pleats. Animals and buildings become paper models."),
     N_("Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints as fast as 4K."),
 ]
 GALLERY_META = [
@@ -420,6 +429,15 @@ GALLERY_META = [
     N_("strength 0.65 · ukiyo-e · 3840 × 2160"),
     N_("strength 0.70 · woodcut · 3840 × 2160"),
     N_("strength 0.65 · charcoal · 3840 × 2160"),
+    N_("strength 0.70 · expressionist · 3840 × 2160"),
+    N_("strength 0.75 · psychedelic · 3840 × 2160"),
+    N_("strength 0.70 · renaissance · 3840 × 2160"),
+    N_("strength 0.70 · surrealist · 3840 × 2160"),
+    N_("strength 0.70 · art-deco · 3840 × 2160"),
+    N_("strength 0.70 · stacked-papercut · 3840 × 2160"),
+    N_("strength 0.75 · shadow-box · 3840 × 2160"),
+    N_("strength 0.70 · paper-quilling · 3840 × 2160"),
+    N_("strength 0.65 · origami · 3840 × 2160"),
     N_("strength 0.60 · impasto · 1920 × 1080"),
 ]
 GALLERY_PICTURES = [N_("Mountain lake"), N_("City"), N_("Portrait"), N_("Sea")]

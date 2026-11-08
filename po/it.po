@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kiro-atelier-check\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 16:12+0100\n"
+"POT-Creation-Date: 2026-11-08 10:17+0100\n"
 "PO-Revision-Date: 2026-11-05 18:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -364,18 +364,18 @@ msgstr "Questo PC può eseguire Kiro Atelier."
 msgid "KA Check: can this PC run Kiro Atelier?\n"
 msgstr "KA Check: questo PC può eseguire Kiro Atelier?\n"
 
-#: usr/bin/kiro-atelier-check:269 usr/bin/kiro-atelier-check:714
+#: usr/bin/kiro-atelier-check:269 usr/bin/kiro-atelier-check:732
 msgid "What you can do"
 msgstr "Cosa puoi fare"
 
 #
 #: usr/bin/kiro-atelier-check:274 usr/bin/kiro-atelier-check:281
-#: usr/bin/kiro-atelier-check:343 usr/bin/kiro-atelier-check:689
+#: usr/bin/kiro-atelier-check:343 usr/bin/kiro-atelier-check:707
 msgid "Which graphics cards work?"
 msgstr "Quali schede grafiche funzionano?"
 
 #
-#: usr/bin/kiro-atelier-check:275 usr/bin/kiro-atelier-check:603
+#: usr/bin/kiro-atelier-check:275 usr/bin/kiro-atelier-check:621
 msgid "Get Kiro Atelier on Ko-fi"
 msgstr "Ottieni Kiro Atelier su Ko-fi"
 
@@ -466,8 +466,8 @@ msgstr ""
 "per portatile dipinge più lentamente della scheda desktop con lo stesso "
 "nome. L’ultima parola spetta a KA Check sul PC stesso."
 
-#: usr/bin/kiro-atelier-check:381 usr/bin/kiro-atelier-check:529
-#: usr/bin/kiro-atelier-check:742
+#: usr/bin/kiro-atelier-check:381 usr/bin/kiro-atelier-check:547
+#: usr/bin/kiro-atelier-check:760
 msgid "Close"
 msgstr "Chiudi"
 
@@ -559,90 +559,182 @@ msgstr ""
 
 #: usr/bin/kiro-atelier-check:408
 msgid ""
+"Raw, emotional brushwork in bold, unusual colours. Shapes stay, colours go "
+"wild."
+msgstr "Pennellate crude ed emotive in colori forti e insoliti. Le forme restano, i colori si scatenano."
+
+#: usr/bin/kiro-atelier-check:409
+#
+msgid "Swirling patterns and vibrant colour, far from the photo."
+msgstr "Motivi vorticosi e colori vivaci, lontano dalla foto."
+
+#: usr/bin/kiro-atelier-check:410
+msgid ""
+"Old-master oil on panel. Reimagines the scene: expect new buildings and "
+"people."
+msgstr "Olio su tavola come gli antichi maestri. Reinventa la scena: aspettati nuovi edifici e persone."
+
+#: usr/bin/kiro-atelier-check:411
+msgid "Surrealist dream: strange objects appear where you don't expect them."
+msgstr "Sogno surrealista: oggetti strani compaiono dove non te li aspetti."
+
+#: usr/bin/kiro-atelier-check:412
+msgid "Geometric shapes, gold accents and bold colour. Reimagines the scene."
+msgstr "Forme geometriche, tocchi dorati e colori forti. Reinventa la scena."
+
+#: usr/bin/kiro-atelier-check:413
+msgid "Stacked papercut: cut paper layers with depth and strong contrast."
+msgstr "Carta ritagliata a strati: strati di carta ritagliata con profondità e forte contrasto."
+
+#: usr/bin/kiro-atelier-check:414
+msgid ""
+"Layered paper silhouettes lit from behind. Adds trees, moons and figures of "
+"its own."
+msgstr "Sagome di carta a strati, illuminate da dietro. Aggiunge alberi, lune e figure di suo."
+
+#: usr/bin/kiro-atelier-check:415
+msgid ""
+"Curled paper strips, coils and loops. Landscapes keep their shape; animals "
+"turn into ornaments."
+msgstr "Strisce di carta arrotolate, spirali e anelli. I paesaggi mantengono la forma; gli animali diventano ornamenti."
+
+#: usr/bin/kiro-atelier-check:416
+msgid ""
+"Folded paper: crisp facets and pleats. Animals and buildings become paper "
+"models."
+msgstr "Carta piegata: sfaccettature nette e pieghe. Animali ed edifici diventano modellini di carta."
+
+#: usr/bin/kiro-atelier-check:417
+msgid ""
 "Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints "
 "as fast as 4K."
 msgstr ""
 "Impasto a 1920 × 1080: file più piccoli per un portatile o un secondo "
 "schermo. Veloce quanto il 4K."
 
-#: usr/bin/kiro-atelier-check:411
+#: usr/bin/kiro-atelier-check:420
 msgid "strength 0.65 · impasto · 3840 × 2160"
 msgstr "intensità 0.65 · impasto · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:412
+#: usr/bin/kiro-atelier-check:421
 msgid "strength 0.75 · impasto · 3840 × 2160 · detail pass"
 msgstr "intensità 0.75 · impasto · 3840 × 2160 · passaggio di dettaglio"
 
-#: usr/bin/kiro-atelier-check:413
+#: usr/bin/kiro-atelier-check:422
 msgid "strength 0.45 · impasto · 3840 × 2160"
 msgstr "intensità 0.45 · impasto · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:414
+#: usr/bin/kiro-atelier-check:423
 msgid "strength 0.55 · impasto · 3840 × 2160 · detail pass"
 msgstr "intensità 0.55 · impasto · 3840 × 2160 · passaggio di dettaglio"
 
-#: usr/bin/kiro-atelier-check:415
+#: usr/bin/kiro-atelier-check:424
 msgid "strength 0.60 · watercolour · 3840 × 2160"
 msgstr "intensità 0.60 · acquerello · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:416
+#: usr/bin/kiro-atelier-check:425
 msgid "strength 0.75 · watercolour · 3840 × 2160"
 msgstr "intensità 0.75 · acquerello · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:417
+#: usr/bin/kiro-atelier-check:426
 msgid "strength 0.70 · gouache · 3840 × 2160"
 msgstr "intensità 0.70 · gouache · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:418
+#: usr/bin/kiro-atelier-check:427
 msgid "strength 0.60 · pastel · 3840 × 2160"
 msgstr "intensità 0.60 · pastello · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:419
+#: usr/bin/kiro-atelier-check:428
 msgid "strength 0.55 · ukiyo-e · 3840 × 2160"
 msgstr "intensità 0.55 · ukiyo-e · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:420
+#: usr/bin/kiro-atelier-check:429
 msgid "strength 0.65 · ukiyo-e · 3840 × 2160"
 msgstr "intensità 0.65 · ukiyo-e · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:421
+#: usr/bin/kiro-atelier-check:430
 msgid "strength 0.70 · woodcut · 3840 × 2160"
 msgstr "intensità 0.70 · xilografia · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:422
+#: usr/bin/kiro-atelier-check:431
 msgid "strength 0.65 · charcoal · 3840 × 2160"
 msgstr "intensità 0.65 · carboncino · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:423
+#: usr/bin/kiro-atelier-check:432
+#
+msgid "strength 0.70 · expressionist · 3840 × 2160"
+msgstr "intensità 0.70 · espressionismo · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:433
+#
+msgid "strength 0.75 · psychedelic · 3840 × 2160"
+msgstr "intensità 0.75 · psichedelico · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:434
+#
+msgid "strength 0.70 · renaissance · 3840 × 2160"
+msgstr "intensità 0.70 · rinascimento · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:435
+#
+msgid "strength 0.70 · surrealist · 3840 × 2160"
+msgstr "intensità 0.70 · surrealismo · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:436
+#
+msgid "strength 0.70 · art-deco · 3840 × 2160"
+msgstr "intensità 0.70 · art déco · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:437
+#
+msgid "strength 0.70 · stacked-papercut · 3840 × 2160"
+msgstr "intensità 0.70 · carta ritagliata a strati · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:438
+#
+msgid "strength 0.75 · shadow-box · 3840 × 2160"
+msgstr "intensità 0.75 · scatola d'ombre · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:439
+#
+msgid "strength 0.70 · paper-quilling · 3840 × 2160"
+msgstr "intensità 0.70 · quilling · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:440
+#
+msgid "strength 0.65 · origami · 3840 × 2160"
+msgstr "intensità 0.65 · origami · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:441
 msgid "strength 0.60 · impasto · 1920 × 1080"
 msgstr "intensità 0.60 · impasto · 1920 × 1080"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "City"
 msgstr "Città"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Mountain lake"
 msgstr "Lago di montagna"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Portrait"
 msgstr "Ritratto"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Sea"
 msgstr "Mare"
 
-#: usr/bin/kiro-atelier-check:448 usr/bin/kiro-atelier-check:514
+#: usr/bin/kiro-atelier-check:466 usr/bin/kiro-atelier-check:532
 msgid "What Kiro Atelier paints"
 msgstr "Cosa dipinge Kiro Atelier"
 
-#: usr/bin/kiro-atelier-check:457
+#: usr/bin/kiro-atelier-check:475
 #, python-brace-format
 msgid "{caption} ({current} / {total})"
 msgstr "{caption} ({current} / {total})"
 
-#: usr/bin/kiro-atelier-check:518
+#: usr/bin/kiro-atelier-check:536
 msgid ""
 "Every ready-made style of Kiro Atelier on the same 4 photos. Click a picture "
 "to see it big; the arrow keys move on."
@@ -651,24 +743,24 @@ msgstr ""
 "un’immagine per vederla ingrandita; usa i tasti freccia per spostarti tra le "
 "immagini."
 
-#: usr/bin/kiro-atelier-check:523
+#: usr/bin/kiro-atelier-check:541
 msgid "Originals"
 msgstr "Originali"
 
-#: usr/bin/kiro-atelier-check:523
+#: usr/bin/kiro-atelier-check:541
 msgid "The 4 photos every style below starts from."
 msgstr "Le 4 foto da cui parte ogni stile qui sotto."
 
-#: usr/bin/kiro-atelier-check:565
+#: usr/bin/kiro-atelier-check:583
 msgid "Your PC is ready: turn your photos into paintings"
 msgstr "Il tuo PC è pronto: trasforma le tue foto in dipinti"
 
 #
-#: usr/bin/kiro-atelier-check:566
+#: usr/bin/kiro-atelier-check:584
 msgid "Kiro Atelier: your photos as paintings"
 msgstr "Kiro Atelier: le tue foto come dipinti"
 
-#: usr/bin/kiro-atelier-check:569
+#: usr/bin/kiro-atelier-check:587
 msgid ""
 "Kiro Atelier repaints your photos as 4K wallpapers: thick impasto, "
 "watercolour, gouache, pastel, Japanese woodblock print, charcoal and more. "
@@ -678,11 +770,11 @@ msgstr ""
 "acquerello, gouache, pastello, xilografia giapponese, carboncino e altro "
 "ancora. Dipinge sul tuo PC, quindi le tue foto non escono mai da casa tua."
 
-#: usr/bin/kiro-atelier-check:574
+#: usr/bin/kiro-atelier-check:592
 msgid "Get it once a PC in your home passes this check."
 msgstr "Scaricalo quando un PC di casa tua supera questo controllo."
 
-#: usr/bin/kiro-atelier-check:598
+#: usr/bin/kiro-atelier-check:616
 msgid ""
 "One photo, four looks: the original, Palette Knife, Poster Studio and Edo "
 "Landscape."
@@ -690,29 +782,29 @@ msgstr ""
 "Una foto, quattro stili: l’originale, Palette Knife, Poster Studio ed Edo "
 "Landscape."
 
-#: usr/bin/kiro-atelier-check:610
+#: usr/bin/kiro-atelier-check:628
 msgid "See what Kiro Atelier paints"
 msgstr "Guarda cosa dipinge Kiro Atelier"
 
-#: usr/bin/kiro-atelier-check:650
+#: usr/bin/kiro-atelier-check:668
 #, python-brace-format
 msgid "System ({language})"
 msgstr "Sistema ({language})"
 
-#: usr/bin/kiro-atelier-check:653
+#: usr/bin/kiro-atelier-check:671
 msgid "Language"
 msgstr "Lingua"
 
-#: usr/bin/kiro-atelier-check:655
+#: usr/bin/kiro-atelier-check:673
 msgid "Restart now"
 msgstr "Riavvia ora"
 
-#: usr/bin/kiro-atelier-check:670
+#: usr/bin/kiro-atelier-check:688
 msgid "Saved. The new language appears when KA Check starts again."
 msgstr "Salvato. La nuova lingua compare al prossimo avvio di KA Check."
 
 #
-#: usr/bin/kiro-atelier-check:685
+#: usr/bin/kiro-atelier-check:703
 msgid ""
 "Kiro Atelier needs an NVIDIA graphics card with at least 6 GB of video "
 "memory (RTX 20 series or newer), 16 GB of memory and about 20 GB of free "
@@ -722,7 +814,7 @@ msgstr ""
 "memoria video (serie RTX 20 o successiva), 16 GB di memoria e circa 20 GB di "
 "spazio libero su disco. Su questo PC non è stato cambiato nulla."
 
-#: usr/bin/kiro-atelier-check:707
+#: usr/bin/kiro-atelier-check:725
 msgid "More info"
 msgstr "Altre informazioni"
 

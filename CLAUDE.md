@@ -35,7 +35,7 @@ Run `--text` over ssh on the test boxes; to show the window on a box's screen, s
 a running desktop process (all variables, not only WAYLAND_DISPLAY). Never on Erik's own screens.
 
 ## Translations (2026-11-05)
-- 13 languages (nl de es fr pt_BR ru hu it tr pl ja zh_CN ro), 127 strings, domain `kiro-atelier-check`.
+- 13 languages (nl de es fr pt_BR ru hu it tr pl ja zh_CN ro), 145 strings (2026-11-08), domain `kiro-atelier-check`.
   `usr/share/kiro-atelier-check/kac_i18n.py` (env pin `KAC_LANGUAGE`, choice in `~/.config/kiro-atelier-check/
   prefs.json`); the script adds that folder to `sys.path` from its own location (works installed and from the repo).
   Header bar with the language dropdown + Restart now. Window and `--text` report both translated; the title column
@@ -45,7 +45,8 @@ a running desktop process (all variables, not only WAYLAND_DISPLAY). Never on Er
   French uses "Go" like KA's French (checked by Erik).
 - **Coupling**: the gallery's settings lines ("strength 0.65 · impasto · 3840 × 2160") and profile descriptions are an
   `N_()` list in the script so xgettext finds them; after changing a profile in KA and re-exporting the gallery, update
-  that list too, or the new line shows in English.
+  that list too, or the new line shows in English. The export also writes `detail/` (KA's chooser close-ups):
+  delete it here, KA Check never shipped it.
 - After changing English text: `bash po/make-mo.sh`, translate the new entries in all 13 `.po`, run it again.
 - Second check: `ai-review.py <lang> po/<lang>.po --register … --model gpt-6-luna --out …` per language, then
   `apply-review.py`. Reject fixes that rename KiroTux or change text quoted from KA's own screens (Setup page,

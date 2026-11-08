@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kiro-atelier-check\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-07 16:12+0100\n"
+"POT-Creation-Date: 2026-11-08 10:17+0100\n"
 "PO-Revision-Date: 2026-11-05 18:01+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -337,18 +337,18 @@ msgstr "此电脑可以运行 Kiro Atelier。"
 msgid "KA Check: can this PC run Kiro Atelier?\n"
 msgstr "KA Check：此电脑能运行 Kiro Atelier 吗？\n"
 
-#: usr/bin/kiro-atelier-check:269 usr/bin/kiro-atelier-check:714
+#: usr/bin/kiro-atelier-check:269 usr/bin/kiro-atelier-check:732
 msgid "What you can do"
 msgstr "你可以做什么"
 
 #
 #: usr/bin/kiro-atelier-check:274 usr/bin/kiro-atelier-check:281
-#: usr/bin/kiro-atelier-check:343 usr/bin/kiro-atelier-check:689
+#: usr/bin/kiro-atelier-check:343 usr/bin/kiro-atelier-check:707
 msgid "Which graphics cards work?"
 msgstr "哪些显卡可以使用？"
 
 #
-#: usr/bin/kiro-atelier-check:275 usr/bin/kiro-atelier-check:603
+#: usr/bin/kiro-atelier-check:275 usr/bin/kiro-atelier-check:621
 msgid "Get Kiro Atelier on Ko-fi"
 msgstr "在 Ko-fi 上获取 Kiro Atelier"
 
@@ -437,8 +437,8 @@ msgstr ""
 "工作站显卡显存容量可能不同，而且笔记本显卡的绘制速度比同名的台式机显卡慢。以"
 "在这台电脑上运行 KA Check 的结果为准。"
 
-#: usr/bin/kiro-atelier-check:381 usr/bin/kiro-atelier-check:529
-#: usr/bin/kiro-atelier-check:742
+#: usr/bin/kiro-atelier-check:381 usr/bin/kiro-atelier-check:547
+#: usr/bin/kiro-atelier-check:760
 msgid "Close"
 msgstr "关闭"
 
@@ -514,89 +514,181 @@ msgstr "炭笔画：在粗糙纸面上以黑灰色笔触晕染，形成强烈对
 
 #: usr/bin/kiro-atelier-check:408
 msgid ""
+"Raw, emotional brushwork in bold, unusual colours. Shapes stay, colours go "
+"wild."
+msgstr "大胆而奇特的色彩，粗犷而充满情感的笔触。形状保留，色彩狂放。"
+
+#: usr/bin/kiro-atelier-check:409
+#
+msgid "Swirling patterns and vibrant colour, far from the photo."
+msgstr "旋转的图案与鲜艳的色彩，与照片相去甚远。"
+
+#: usr/bin/kiro-atelier-check:410
+msgid ""
+"Old-master oil on panel. Reimagines the scene: expect new buildings and "
+"people."
+msgstr "古典大师风格的木板油画。重新构想画面：会出现新的建筑和人物。"
+
+#: usr/bin/kiro-atelier-check:411
+msgid "Surrealist dream: strange objects appear where you don't expect them."
+msgstr "超现实的梦境：奇怪的物体会出现在意想不到的地方。"
+
+#: usr/bin/kiro-atelier-check:412
+msgid "Geometric shapes, gold accents and bold colour. Reimagines the scene."
+msgstr "几何形状、金色点缀和大胆的色彩。重新构想画面。"
+
+#: usr/bin/kiro-atelier-check:413
+msgid "Stacked papercut: cut paper layers with depth and strong contrast."
+msgstr "叠层剪纸：层层剪纸，富有纵深和强烈对比。"
+
+#: usr/bin/kiro-atelier-check:414
+msgid ""
+"Layered paper silhouettes lit from behind. Adds trees, moons and figures of "
+"its own."
+msgstr "从背后照亮的层叠纸剪影。会自行添加树木、月亮和人物。"
+
+#: usr/bin/kiro-atelier-check:415
+msgid ""
+"Curled paper strips, coils and loops. Landscapes keep their shape; animals "
+"turn into ornaments."
+msgstr "卷曲的纸条、螺旋和圈环。风景保持原有形状，动物变成装饰图案。"
+
+#: usr/bin/kiro-atelier-check:416
+msgid ""
+"Folded paper: crisp facets and pleats. Animals and buildings become paper "
+"models."
+msgstr "折纸：清晰的棱面和折痕。动物和建筑变成纸模型。"
+
+#: usr/bin/kiro-atelier-check:417
+msgid ""
 "Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints "
 "as fast as 4K."
 msgstr ""
 "1920 × 1080 厚涂：生成的文件较小，适合笔记本电脑或副屏。绘制速度与 4K 相同。"
 
-#: usr/bin/kiro-atelier-check:411
+#: usr/bin/kiro-atelier-check:420
 msgid "strength 0.65 · impasto · 3840 × 2160"
 msgstr "强度 0.65 · 厚涂 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:412
+#: usr/bin/kiro-atelier-check:421
 msgid "strength 0.75 · impasto · 3840 × 2160 · detail pass"
 msgstr "强度 0.75 · 厚涂 · 3840 × 2160 · 细节处理"
 
-#: usr/bin/kiro-atelier-check:413
+#: usr/bin/kiro-atelier-check:422
 msgid "strength 0.45 · impasto · 3840 × 2160"
 msgstr "强度 0.45 · 厚涂 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:414
+#: usr/bin/kiro-atelier-check:423
 msgid "strength 0.55 · impasto · 3840 × 2160 · detail pass"
 msgstr "强度 0.55 · 厚涂 · 3840 × 2160 · 细节处理"
 
-#: usr/bin/kiro-atelier-check:415
+#: usr/bin/kiro-atelier-check:424
 msgid "strength 0.60 · watercolour · 3840 × 2160"
 msgstr "强度 0.60 · 水彩 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:416
+#: usr/bin/kiro-atelier-check:425
 msgid "strength 0.75 · watercolour · 3840 × 2160"
 msgstr "强度 0.75 · 水彩 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:417
+#: usr/bin/kiro-atelier-check:426
 msgid "strength 0.70 · gouache · 3840 × 2160"
 msgstr "强度 0.70 · 水粉画 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:418
+#: usr/bin/kiro-atelier-check:427
 msgid "strength 0.60 · pastel · 3840 × 2160"
 msgstr "强度 0.60 · 粉彩 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:419
+#: usr/bin/kiro-atelier-check:428
 msgid "strength 0.55 · ukiyo-e · 3840 × 2160"
 msgstr "强度 0.55 · 浮世绘 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:420
+#: usr/bin/kiro-atelier-check:429
 msgid "strength 0.65 · ukiyo-e · 3840 × 2160"
 msgstr "强度 0.65 · 浮世绘 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:421
+#: usr/bin/kiro-atelier-check:430
 msgid "strength 0.70 · woodcut · 3840 × 2160"
 msgstr "强度 0.70 · 木刻版画 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:422
+#: usr/bin/kiro-atelier-check:431
 msgid "strength 0.65 · charcoal · 3840 × 2160"
 msgstr "强度 0.65 · 炭笔画 · 3840 × 2160"
 
-#: usr/bin/kiro-atelier-check:423
+#: usr/bin/kiro-atelier-check:432
+#
+msgid "strength 0.70 · expressionist · 3840 × 2160"
+msgstr "强度 0.70 · 表现主义 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:433
+#
+msgid "strength 0.75 · psychedelic · 3840 × 2160"
+msgstr "强度 0.75 · 迷幻 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:434
+#
+msgid "strength 0.70 · renaissance · 3840 × 2160"
+msgstr "强度 0.70 · 文艺复兴 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:435
+#
+msgid "strength 0.70 · surrealist · 3840 × 2160"
+msgstr "强度 0.70 · 超现实主义 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:436
+#
+msgid "strength 0.70 · art-deco · 3840 × 2160"
+msgstr "强度 0.70 · 装饰艺术 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:437
+#
+msgid "strength 0.70 · stacked-papercut · 3840 × 2160"
+msgstr "强度 0.70 · 叠层剪纸 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:438
+#
+msgid "strength 0.75 · shadow-box · 3840 × 2160"
+msgstr "强度 0.75 · 光影纸盒 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:439
+#
+msgid "strength 0.70 · paper-quilling · 3840 × 2160"
+msgstr "强度 0.70 · 衍纸 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:440
+#
+msgid "strength 0.65 · origami · 3840 × 2160"
+msgstr "强度 0.65 · 折纸 · 3840 × 2160"
+
+#: usr/bin/kiro-atelier-check:441
 msgid "strength 0.60 · impasto · 1920 × 1080"
 msgstr "强度 0.60 · 厚涂 · 1920 × 1080"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "City"
 msgstr "城市"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Mountain lake"
 msgstr "山间湖泊"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Portrait"
 msgstr "人像"
 
-#: usr/bin/kiro-atelier-check:425
+#: usr/bin/kiro-atelier-check:443
 msgid "Sea"
 msgstr "大海"
 
-#: usr/bin/kiro-atelier-check:448 usr/bin/kiro-atelier-check:514
+#: usr/bin/kiro-atelier-check:466 usr/bin/kiro-atelier-check:532
 msgid "What Kiro Atelier paints"
 msgstr "Kiro Atelier 的绘制效果"
 
-#: usr/bin/kiro-atelier-check:457
+#: usr/bin/kiro-atelier-check:475
 #, python-brace-format
 msgid "{caption} ({current} / {total})"
 msgstr "{caption}（{current} / {total}）"
 
-#: usr/bin/kiro-atelier-check:518
+#: usr/bin/kiro-atelier-check:536
 msgid ""
 "Every ready-made style of Kiro Atelier on the same 4 photos. Click a picture "
 "to see it big; the arrow keys move on."
@@ -604,24 +696,24 @@ msgstr ""
 "Kiro Atelier 的所有预设风格，均基于同样的 4 张照片。点击图片可查看大图；用方"
 "向键切换。"
 
-#: usr/bin/kiro-atelier-check:523
+#: usr/bin/kiro-atelier-check:541
 msgid "Originals"
 msgstr "原图"
 
-#: usr/bin/kiro-atelier-check:523
+#: usr/bin/kiro-atelier-check:541
 msgid "The 4 photos every style below starts from."
 msgstr "以下每种风格所基于的 4 张照片。"
 
-#: usr/bin/kiro-atelier-check:565
+#: usr/bin/kiro-atelier-check:583
 msgid "Your PC is ready: turn your photos into paintings"
 msgstr "你的电脑已就绪：把照片变成画作"
 
 #
-#: usr/bin/kiro-atelier-check:566
+#: usr/bin/kiro-atelier-check:584
 msgid "Kiro Atelier: your photos as paintings"
 msgstr "Kiro Atelier：把照片变成画作"
 
-#: usr/bin/kiro-atelier-check:569
+#: usr/bin/kiro-atelier-check:587
 msgid ""
 "Kiro Atelier repaints your photos as 4K wallpapers: thick impasto, "
 "watercolour, gouache, pastel, Japanese woodblock print, charcoal and more. "
@@ -630,40 +722,40 @@ msgstr ""
 "Kiro Atelier 将你的照片重新绘制为 4K 壁纸：厚涂、水彩、水粉、粉彩、日本木版"
 "画、炭笔等多种风格。它在你自己的电脑上作画，照片永远不会离开你的家。"
 
-#: usr/bin/kiro-atelier-check:574
+#: usr/bin/kiro-atelier-check:592
 msgid "Get it once a PC in your home passes this check."
 msgstr "等家中有一台电脑通过此检查后再购买。"
 
-#: usr/bin/kiro-atelier-check:598
+#: usr/bin/kiro-atelier-check:616
 msgid ""
 "One photo, four looks: the original, Palette Knife, Poster Studio and Edo "
 "Landscape."
 msgstr ""
 "一张照片，四种风格：原图、Palette Knife、Poster Studio 和 Edo Landscape。"
 
-#: usr/bin/kiro-atelier-check:610
+#: usr/bin/kiro-atelier-check:628
 msgid "See what Kiro Atelier paints"
 msgstr "查看 Kiro Atelier 的绘制效果"
 
-#: usr/bin/kiro-atelier-check:650
+#: usr/bin/kiro-atelier-check:668
 #, python-brace-format
 msgid "System ({language})"
 msgstr "系统（{language}）"
 
-#: usr/bin/kiro-atelier-check:653
+#: usr/bin/kiro-atelier-check:671
 msgid "Language"
 msgstr "语言"
 
-#: usr/bin/kiro-atelier-check:655
+#: usr/bin/kiro-atelier-check:673
 msgid "Restart now"
 msgstr "立即重启"
 
-#: usr/bin/kiro-atelier-check:670
+#: usr/bin/kiro-atelier-check:688
 msgid "Saved. The new language appears when KA Check starts again."
 msgstr "已保存。新语言将在 KA Check 下次启动时生效。"
 
 #
-#: usr/bin/kiro-atelier-check:685
+#: usr/bin/kiro-atelier-check:703
 msgid ""
 "Kiro Atelier needs an NVIDIA graphics card with at least 6 GB of video "
 "memory (RTX 20 series or newer), 16 GB of memory and about 20 GB of free "
@@ -672,7 +764,7 @@ msgstr ""
 "Kiro Atelier 需要一块显存至少 6 GB 的 NVIDIA 显卡（RTX 20 系列或更新）、16 "
 "GB 内存和约 20 GB 可用磁盘空间。这台电脑上没有做任何更改。"
 
-#: usr/bin/kiro-atelier-check:707
+#: usr/bin/kiro-atelier-check:725
 msgid "More info"
 msgstr "更多信息"
 

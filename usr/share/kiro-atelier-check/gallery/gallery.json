@@ -151,6 +151,105 @@
    ]
   },
   {
+   "name": "Expressionist",
+   "description": "Raw, emotional brushwork in bold, unusual colours. Shapes stay, colours go wild.",
+   "meta": "strength 0.70 · expressionist · 3840 × 2160",
+   "files": [
+    "expressionist-mountain-lake.jpg",
+    "expressionist-city.jpg",
+    "expressionist-portrait.jpg",
+    "expressionist-sea.jpg"
+   ]
+  },
+  {
+   "name": "Psychedelic",
+   "description": "Swirling patterns and vibrant colour, far from the photo.",
+   "meta": "strength 0.75 · psychedelic · 3840 × 2160",
+   "files": [
+    "psychedelic-mountain-lake.jpg",
+    "psychedelic-city.jpg",
+    "psychedelic-portrait.jpg",
+    "psychedelic-sea.jpg"
+   ]
+  },
+  {
+   "name": "Renaissance",
+   "description": "Old-master oil on panel. Reimagines the scene: expect new buildings and people.",
+   "meta": "strength 0.70 · renaissance · 3840 × 2160",
+   "files": [
+    "renaissance-mountain-lake.jpg",
+    "renaissance-city.jpg",
+    "renaissance-portrait.jpg",
+    "renaissance-sea.jpg"
+   ]
+  },
+  {
+   "name": "Dreamscape",
+   "description": "Surrealist dream: strange objects appear where you don't expect them.",
+   "meta": "strength 0.70 · surrealist · 3840 × 2160",
+   "files": [
+    "dreamscape-mountain-lake.jpg",
+    "dreamscape-city.jpg",
+    "dreamscape-portrait.jpg",
+    "dreamscape-sea.jpg"
+   ]
+  },
+  {
+   "name": "Art Deco",
+   "description": "Geometric shapes, gold accents and bold colour. Reimagines the scene.",
+   "meta": "strength 0.70 · art-deco · 3840 × 2160",
+   "files": [
+    "art-deco-mountain-lake.jpg",
+    "art-deco-city.jpg",
+    "art-deco-portrait.jpg",
+    "art-deco-sea.jpg"
+   ]
+  },
+  {
+   "name": "Layered Paper",
+   "description": "Stacked papercut: cut paper layers with depth and strong contrast.",
+   "meta": "strength 0.70 · stacked-papercut · 3840 × 2160",
+   "files": [
+    "layered-paper-mountain-lake.jpg",
+    "layered-paper-city.jpg",
+    "layered-paper-portrait.jpg",
+    "layered-paper-sea.jpg"
+   ]
+  },
+  {
+   "name": "Shadow Box",
+   "description": "Layered paper silhouettes lit from behind. Adds trees, moons and figures of its own.",
+   "meta": "strength 0.75 · shadow-box · 3840 × 2160",
+   "files": [
+    "shadow-box-mountain-lake.jpg",
+    "shadow-box-city.jpg",
+    "shadow-box-portrait.jpg",
+    "shadow-box-sea.jpg"
+   ]
+  },
+  {
+   "name": "Paper Quilling",
+   "description": "Curled paper strips, coils and loops. Landscapes keep their shape; animals turn into ornaments.",
+   "meta": "strength 0.70 · paper-quilling · 3840 × 2160",
+   "files": [
+    "paper-quilling-mountain-lake.jpg",
+    "paper-quilling-city.jpg",
+    "paper-quilling-portrait.jpg",
+    "paper-quilling-sea.jpg"
+   ]
+  },
+  {
+   "name": "Origami",
+   "description": "Folded paper: crisp facets and pleats. Animals and buildings become paper models.",
+   "meta": "strength 0.65 · origami · 3840 × 2160",
+   "files": [
+    "origami-mountain-lake.jpg",
+    "origami-city.jpg",
+    "origami-portrait.jpg",
+    "origami-sea.jpg"
+   ]
+  },
+  {
    "name": "Light Files",
    "description": "Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints as fast as 4K.",
    "meta": "strength 0.60 · impasto · 1920 × 1080",

@@ -1,5 +1,26 @@
 # Changelog — kiro-atelier-check
 
+## 2026.11.08
+
+### What Changed
+- **Nine new styles in the style gallery**, the same nine Kiro Atelier gains: Expressionist, Psychedelic,
+  Renaissance, Dreamscape, Art Deco, Layered Paper, Shadow Box, Paper Quilling and Origami, each on the four CC0
+  photos. The gallery shows 22 profiles now. Their descriptions and settings lines are translated into all 13
+  languages (145 strings each).
+
+### Technical Details
+- Gallery re-exported from Kiro Atelier's `tools/style_gallery.py --export` (painted on the CC0 photos only);
+  the export's `detail/` close-ups are for KA's style chooser and are left out here. The gallery grows from
+  10.7 MB to 18 MB.
+- `GALLERY_DESCRIPTIONS` / `GALLERY_META` gain 9 entries each so xgettext finds them. The settings lines reuse each
+  language's own word for "strength" and number format (German decimal comma) from the existing lines.
+
+### Files Modified
+- `usr/bin/kiro-atelier-check`
+- `usr/share/kiro-atelier-check/gallery/` (`gallery.json`, `thumb/`, `view/`)
+- `po/*.po`, `po/kiro-atelier-check.pot`, `usr/share/locale/*/LC_MESSAGES/kiro-atelier-check.mo`
+- `CLAUDE.md`, `CHANGELOG.md`
+
 ## 2026.11.07 — Public: GitHub + nemesis_repo
 
 ### What Changed
