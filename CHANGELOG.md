@@ -1,5 +1,20 @@
 # Changelog — kiro-atelier-check
 
+## 2026.11.14
+
+### What Changed
+- **The graphics card list is on the GitHub page now.** The README gains "Which graphics cards work?": the same
+  three groups KA Check shows behind its button (meets the requirements / likely slow, not tested / doesn't work),
+  with the note that only the RTX 2060 6 GB is tested. People can see whether their card qualifies before they
+  install anything.
+
+### Technical Details
+- Copied word for word from `CARD_LIST` and `CARD_NOTE` in the script; CLAUDE.md records the coupling. README only,
+  so no package build is needed.
+
+### Files Modified
+- `README.md`, `CLAUDE.md`, `CHANGELOG.md`
+
 ## 2026.11.08
 
 ### What Changed

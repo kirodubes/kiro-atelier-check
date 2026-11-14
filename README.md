@@ -34,6 +34,45 @@ Get it here: [Kiro Atelier](https://ko-fi.com/s/6ff5175237), after KA Check says
 Hard failures carry a "More info" with the technical reason. When the card is the problem, "What you can do"
 explains how another Arch-based Linux PC in the home can do the painting ("Another computer" mode).
 
+## Which graphics cards work?
+
+The same list KA Check shows behind its "Which graphics cards work?" button (`kiro-atelier-check --cards`).
+
+### ✔ Meets the requirements
+
+| Family | Type | Cards |
+|---|---|---|
+| GeForce RTX 20 | Desktop | RTX 2060, 2060 12GB, 2060 Super, 2070, 2070 Super, 2080, 2080 Super, 2080 Ti, Titan RTX |
+| GeForce RTX 20 | Laptop | RTX 2060, 2070, 2070 Super, 2080, 2080 Super (+ Max-Q) |
+| GeForce RTX 30 | Desktop | RTX 3050 6GB, 3050 8GB, 3060, 3060 Ti, 3070, 3070 Ti, 3080, 3080 Ti, 3090, 3090 Ti |
+| GeForce RTX 30 | Laptop | RTX 3050 6GB, 3060, 3070, 3070 Ti, 3080, 3080 Ti |
+| GeForce RTX 40 | Desktop | RTX 4060, 4060 Ti, 4070, 4070 Super, 4070 Ti, 4070 Ti Super, 4080, 4080 Super, 4090 |
+| GeForce RTX 40 | Laptop | RTX 4050, 4060, 4070, 4080, 4090 |
+| GeForce RTX 50 | Desktop | RTX 5050, 5060, 5060 Ti, 5070, 5070 Ti, 5080, 5090 |
+| GeForce RTX 50 | Laptop | RTX 5050, 5060, 5070, 5070 Ti, 5080, 5090 |
+| Workstation | Desktop | Quadro RTX 4000, 5000, 6000, 8000 · RTX A1000, A2000, A4000, A4500, A5000, A5500, A6000 · RTX 2000 Ada, 4000 SFF Ada, 4000 Ada, 4500 Ada, 5000 Ada, 6000 Ada · RTX PRO 2000, 4000, 4000 SFF, 4500, 5000, 6000 Blackwell |
+| Workstation | Laptop | Quadro RTX 3000, 4000, 5000, 6000 · RTX A1000 6GB, A2000 8GB, A3000, A4000, A4500, A5000, A5500 · RTX 1000 Ada, 2000 Ada, 3000 Ada, 3500 Ada, 4000 Ada, 5000 Ada · RTX PRO 500, 1000, 2000, 3000, 4000, 5000 Blackwell |
+
+### ! Meets the requirements, but likely slow (not tested)
+
+| Family | Type | Cards |
+|---|---|---|
+| GeForce GTX 16 | Desktop | GTX 1660, 1660 Super, 1660 Ti |
+| GeForce GTX 16 | Laptop | GTX 1660 Ti |
+| Workstation | Desktop | T1000 8GB |
+
+### ✘ Doesn't work
+
+| Reason | | Cards |
+|---|---|---|
+| Less than 6 GB | of video memory | GTX 1630, 1650 (all versions) · RTX 2050 · RTX 3050 4GB, 3050 Ti and 3050 A (laptop) · MX series · T400, T500, T550, T600, T1000 4GB, T1200, T2000 · RTX A400, A500, A1000 4GB (laptop), A2000 4GB (laptop) · RTX 500 Ada |
+| Too old | before the RTX 20 / GTX 16 generation | GTX 10xx and older (1080 Ti, 1070, 1060 …) · Titan X, Titan Xp, Titan V · Quadro P and M series, Quadro GV100 |
+| Not NVIDIA | | AMD Radeon, Intel Arc, graphics built into the processor |
+
+Tested on an RTX 2060 (6 GB); the other cards meet the same requirements but haven't been tried. Laptop and
+workstation cards with the same name can have different amounts of video memory, and a laptop card paints slower
+than the desktop card with the same name. KA Check on the PC itself has the last word.
+
 ## What it ships
 
 - `/usr/bin/kiro-atelier-check` — the whole tool, one standalone Python file (no Kiro Atelier imports)
