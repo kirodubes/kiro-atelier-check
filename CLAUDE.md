@@ -25,6 +25,7 @@ Change them here when KA's Setup or models change.
 ComfyUI's `nvidia_16_series` list → warning). Recheck it when NVIDIA ships new cards or the rule changes. Only the
 RTX 2060 6 GB is tested: never word the list or texts as "works" or with times that weren't measured.
 **Coupling**: README "Which graphics cards work?" is a copy of `CARD_LIST` + `CARD_NOTE`; change both together.
+README "All N styles" is generated from `gallery/gallery.json` (thumb/ + view/ links): regenerate it after a re-export.
 
 ## Ko-fi card (2026.11.06)
 - `buy_card()` points to KA on Ko-fi: link `KOFI_URL` (button, link and the last line of `--text`). Under the verdict when

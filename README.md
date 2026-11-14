@@ -73,6 +73,168 @@ Tested on an RTX 2060 (6 GB); the other cards meet the same requirements but hav
 workstation cards with the same name can have different amounts of video memory, and a laptop card paints slower
 than the desktop card with the same name. KA Check on the PC itself has the last word.
 
+## All 22 styles
+
+Every Kiro Atelier style on the same four photos, the gallery KA Check shows before you decide. Click a picture for the full size. Photos: public domain / CC0.
+
+### The four photos
+
+<a href="usr/share/kiro-atelier-check/gallery/view/original-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/original-mountain-lake.jpg" width="200" alt="Mountain lake"></a> <a href="usr/share/kiro-atelier-check/gallery/view/original-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/original-city.jpg" width="200" alt="City"></a> <a href="usr/share/kiro-atelier-check/gallery/view/original-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/original-portrait.jpg" width="200" alt="Portrait"></a> <a href="usr/share/kiro-atelier-check/gallery/view/original-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/original-sea.jpg" width="200" alt="Sea"></a>
+
+### Default
+
+The original Kiro Atelier look: thick impasto, a good balance between photo and paint.  
+*strength 0.65 · impasto · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/default-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/default-mountain-lake.jpg" width="200" alt="Mountain lake in Default"></a> <a href="usr/share/kiro-atelier-check/gallery/view/default-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/default-city.jpg" width="200" alt="City in Default"></a> <a href="usr/share/kiro-atelier-check/gallery/view/default-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/default-portrait.jpg" width="200" alt="Portrait in Default"></a> <a href="usr/share/kiro-atelier-check/gallery/view/default-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/default-sea.jpg" width="200" alt="Sea in Default"></a>
+
+### Palette Knife
+
+Loose, heavy impasto with real knife ridges; the photo shows through less. Twice as slow.  
+*strength 0.75 · impasto · 3840 × 2160 · detail pass*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/palette-knife-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/palette-knife-mountain-lake.jpg" width="200" alt="Mountain lake in Palette Knife"></a> <a href="usr/share/kiro-atelier-check/gallery/view/palette-knife-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/palette-knife-city.jpg" width="200" alt="City in Palette Knife"></a> <a href="usr/share/kiro-atelier-check/gallery/view/palette-knife-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/palette-knife-portrait.jpg" width="200" alt="Portrait in Palette Knife"></a> <a href="usr/share/kiro-atelier-check/gallery/view/palette-knife-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/palette-knife-sea.jpg" width="200" alt="Sea in Palette Knife"></a>
+
+### Gentle Touch
+
+Stays close to the photo: same shapes and light, with a soft layer of paint over it.  
+*strength 0.45 · impasto · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/gentle-touch-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gentle-touch-mountain-lake.jpg" width="200" alt="Mountain lake in Gentle Touch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gentle-touch-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gentle-touch-city.jpg" width="200" alt="City in Gentle Touch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gentle-touch-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gentle-touch-portrait.jpg" width="200" alt="Portrait in Gentle Touch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gentle-touch-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gentle-touch-sea.jpg" width="200" alt="Sea in Gentle Touch"></a>
+
+### Gallery Print
+
+Best quality for printing or a big screen: extra detail pass, saved as PNG. Slow, large files.  
+*strength 0.55 · impasto · 3840 × 2160 · detail pass*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/gallery-print-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gallery-print-mountain-lake.jpg" width="200" alt="Mountain lake in Gallery Print"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gallery-print-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gallery-print-city.jpg" width="200" alt="City in Gallery Print"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gallery-print-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gallery-print-portrait.jpg" width="200" alt="Portrait in Gallery Print"></a> <a href="usr/share/kiro-atelier-check/gallery/view/gallery-print-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/gallery-print-sea.jpg" width="200" alt="Sea in Gallery Print"></a>
+
+### Morning Wash
+
+Soft watercolour: light washes, gentle edges, paper texture.  
+*strength 0.60 · watercolour · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/morning-wash-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/morning-wash-mountain-lake.jpg" width="200" alt="Mountain lake in Morning Wash"></a> <a href="usr/share/kiro-atelier-check/gallery/view/morning-wash-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/morning-wash-city.jpg" width="200" alt="City in Morning Wash"></a> <a href="usr/share/kiro-atelier-check/gallery/view/morning-wash-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/morning-wash-portrait.jpg" width="200" alt="Portrait in Morning Wash"></a> <a href="usr/share/kiro-atelier-check/gallery/view/morning-wash-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/morning-wash-sea.jpg" width="200" alt="Sea in Morning Wash"></a>
+
+### Monsoon
+
+Wild watercolour: colours run and bleed into each other, far from the photo.  
+*strength 0.75 · watercolour · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/monsoon-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/monsoon-mountain-lake.jpg" width="200" alt="Mountain lake in Monsoon"></a> <a href="usr/share/kiro-atelier-check/gallery/view/monsoon-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/monsoon-city.jpg" width="200" alt="City in Monsoon"></a> <a href="usr/share/kiro-atelier-check/gallery/view/monsoon-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/monsoon-portrait.jpg" width="200" alt="Portrait in Monsoon"></a> <a href="usr/share/kiro-atelier-check/gallery/view/monsoon-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/monsoon-sea.jpg" width="200" alt="Sea in Monsoon"></a>
+
+### Poster Studio
+
+Gouache: flat, bold colour shapes like a travel poster.  
+*strength 0.70 · gouache · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/poster-studio-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/poster-studio-mountain-lake.jpg" width="200" alt="Mountain lake in Poster Studio"></a> <a href="usr/share/kiro-atelier-check/gallery/view/poster-studio-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/poster-studio-city.jpg" width="200" alt="City in Poster Studio"></a> <a href="usr/share/kiro-atelier-check/gallery/view/poster-studio-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/poster-studio-portrait.jpg" width="200" alt="Portrait in Poster Studio"></a> <a href="usr/share/kiro-atelier-check/gallery/view/poster-studio-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/poster-studio-sea.jpg" width="200" alt="Sea in Poster Studio"></a>
+
+### Pastel Light
+
+Soft pastel: chalky strokes and blended light on toned paper.  
+*strength 0.60 · pastel · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/pastel-light-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/pastel-light-mountain-lake.jpg" width="200" alt="Mountain lake in Pastel Light"></a> <a href="usr/share/kiro-atelier-check/gallery/view/pastel-light-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/pastel-light-city.jpg" width="200" alt="City in Pastel Light"></a> <a href="usr/share/kiro-atelier-check/gallery/view/pastel-light-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/pastel-light-portrait.jpg" width="200" alt="Portrait in Pastel Light"></a> <a href="usr/share/kiro-atelier-check/gallery/view/pastel-light-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/pastel-light-sea.jpg" width="200" alt="Sea in Pastel Light"></a>
+
+### Floating World
+
+Japanese woodblock print: clean outlines, flat colours, patterned waves and clouds. Scenes and poses stay; faces take on the woodblock look.  
+*strength 0.55 · ukiyo-e · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/floating-world-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/floating-world-mountain-lake.jpg" width="200" alt="Mountain lake in Floating World"></a> <a href="usr/share/kiro-atelier-check/gallery/view/floating-world-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/floating-world-city.jpg" width="200" alt="City in Floating World"></a> <a href="usr/share/kiro-atelier-check/gallery/view/floating-world-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/floating-world-portrait.jpg" width="200" alt="Portrait in Floating World"></a> <a href="usr/share/kiro-atelier-check/gallery/view/floating-world-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/floating-world-sea.jpg" width="200" alt="Sea in Floating World"></a>
+
+### Edo Landscape
+
+Strongest woodblock look, for landscapes. People and action scenes get replaced.  
+*strength 0.65 · ukiyo-e · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/edo-landscape-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/edo-landscape-mountain-lake.jpg" width="200" alt="Mountain lake in Edo Landscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/edo-landscape-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/edo-landscape-city.jpg" width="200" alt="City in Edo Landscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/edo-landscape-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/edo-landscape-portrait.jpg" width="200" alt="Portrait in Edo Landscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/edo-landscape-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/edo-landscape-sea.jpg" width="200" alt="Sea in Edo Landscape"></a>
+
+### Linocut
+
+Woodcut print: bold carved black lines and a few flat colours. Best on landscapes.  
+*strength 0.70 · woodcut · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/linocut-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/linocut-mountain-lake.jpg" width="200" alt="Mountain lake in Linocut"></a> <a href="usr/share/kiro-atelier-check/gallery/view/linocut-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/linocut-city.jpg" width="200" alt="City in Linocut"></a> <a href="usr/share/kiro-atelier-check/gallery/view/linocut-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/linocut-portrait.jpg" width="200" alt="Portrait in Linocut"></a> <a href="usr/share/kiro-atelier-check/gallery/view/linocut-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/linocut-sea.jpg" width="200" alt="Sea in Linocut"></a>
+
+### Charcoal Sketch
+
+Charcoal drawing: smudged black and grey strokes on rough paper, strong contrast.  
+*strength 0.65 · charcoal · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/charcoal-sketch-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/charcoal-sketch-mountain-lake.jpg" width="200" alt="Mountain lake in Charcoal Sketch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/charcoal-sketch-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/charcoal-sketch-city.jpg" width="200" alt="City in Charcoal Sketch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/charcoal-sketch-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/charcoal-sketch-portrait.jpg" width="200" alt="Portrait in Charcoal Sketch"></a> <a href="usr/share/kiro-atelier-check/gallery/view/charcoal-sketch-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/charcoal-sketch-sea.jpg" width="200" alt="Sea in Charcoal Sketch"></a>
+
+### Expressionist
+
+Raw, emotional brushwork in bold, unusual colours. Shapes stay, colours go wild.  
+*strength 0.70 · expressionist · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/expressionist-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/expressionist-mountain-lake.jpg" width="200" alt="Mountain lake in Expressionist"></a> <a href="usr/share/kiro-atelier-check/gallery/view/expressionist-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/expressionist-city.jpg" width="200" alt="City in Expressionist"></a> <a href="usr/share/kiro-atelier-check/gallery/view/expressionist-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/expressionist-portrait.jpg" width="200" alt="Portrait in Expressionist"></a> <a href="usr/share/kiro-atelier-check/gallery/view/expressionist-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/expressionist-sea.jpg" width="200" alt="Sea in Expressionist"></a>
+
+### Psychedelic
+
+Swirling patterns and vibrant colour, far from the photo.  
+*strength 0.75 · psychedelic · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/psychedelic-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/psychedelic-mountain-lake.jpg" width="200" alt="Mountain lake in Psychedelic"></a> <a href="usr/share/kiro-atelier-check/gallery/view/psychedelic-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/psychedelic-city.jpg" width="200" alt="City in Psychedelic"></a> <a href="usr/share/kiro-atelier-check/gallery/view/psychedelic-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/psychedelic-portrait.jpg" width="200" alt="Portrait in Psychedelic"></a> <a href="usr/share/kiro-atelier-check/gallery/view/psychedelic-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/psychedelic-sea.jpg" width="200" alt="Sea in Psychedelic"></a>
+
+### Renaissance
+
+Old-master oil on panel. Reimagines the scene: expect new buildings and people.  
+*strength 0.70 · renaissance · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/renaissance-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/renaissance-mountain-lake.jpg" width="200" alt="Mountain lake in Renaissance"></a> <a href="usr/share/kiro-atelier-check/gallery/view/renaissance-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/renaissance-city.jpg" width="200" alt="City in Renaissance"></a> <a href="usr/share/kiro-atelier-check/gallery/view/renaissance-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/renaissance-portrait.jpg" width="200" alt="Portrait in Renaissance"></a> <a href="usr/share/kiro-atelier-check/gallery/view/renaissance-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/renaissance-sea.jpg" width="200" alt="Sea in Renaissance"></a>
+
+### Dreamscape
+
+Surrealist dream: strange objects appear where you don't expect them.  
+*strength 0.70 · surrealist · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/dreamscape-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/dreamscape-mountain-lake.jpg" width="200" alt="Mountain lake in Dreamscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/dreamscape-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/dreamscape-city.jpg" width="200" alt="City in Dreamscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/dreamscape-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/dreamscape-portrait.jpg" width="200" alt="Portrait in Dreamscape"></a> <a href="usr/share/kiro-atelier-check/gallery/view/dreamscape-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/dreamscape-sea.jpg" width="200" alt="Sea in Dreamscape"></a>
+
+### Art Deco
+
+Geometric shapes, gold accents and bold colour. Reimagines the scene.  
+*strength 0.70 · art-deco · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/art-deco-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/art-deco-mountain-lake.jpg" width="200" alt="Mountain lake in Art Deco"></a> <a href="usr/share/kiro-atelier-check/gallery/view/art-deco-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/art-deco-city.jpg" width="200" alt="City in Art Deco"></a> <a href="usr/share/kiro-atelier-check/gallery/view/art-deco-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/art-deco-portrait.jpg" width="200" alt="Portrait in Art Deco"></a> <a href="usr/share/kiro-atelier-check/gallery/view/art-deco-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/art-deco-sea.jpg" width="200" alt="Sea in Art Deco"></a>
+
+### Layered Paper
+
+Stacked papercut: cut paper layers with depth and strong contrast.  
+*strength 0.70 · stacked-papercut · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/layered-paper-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/layered-paper-mountain-lake.jpg" width="200" alt="Mountain lake in Layered Paper"></a> <a href="usr/share/kiro-atelier-check/gallery/view/layered-paper-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/layered-paper-city.jpg" width="200" alt="City in Layered Paper"></a> <a href="usr/share/kiro-atelier-check/gallery/view/layered-paper-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/layered-paper-portrait.jpg" width="200" alt="Portrait in Layered Paper"></a> <a href="usr/share/kiro-atelier-check/gallery/view/layered-paper-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/layered-paper-sea.jpg" width="200" alt="Sea in Layered Paper"></a>
+
+### Shadow Box
+
+Layered paper silhouettes lit from behind. Adds trees, moons and figures of its own.  
+*strength 0.75 · shadow-box · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/shadow-box-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/shadow-box-mountain-lake.jpg" width="200" alt="Mountain lake in Shadow Box"></a> <a href="usr/share/kiro-atelier-check/gallery/view/shadow-box-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/shadow-box-city.jpg" width="200" alt="City in Shadow Box"></a> <a href="usr/share/kiro-atelier-check/gallery/view/shadow-box-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/shadow-box-portrait.jpg" width="200" alt="Portrait in Shadow Box"></a> <a href="usr/share/kiro-atelier-check/gallery/view/shadow-box-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/shadow-box-sea.jpg" width="200" alt="Sea in Shadow Box"></a>
+
+### Paper Quilling
+
+Curled paper strips, coils and loops. Landscapes keep their shape; animals turn into ornaments.  
+*strength 0.70 · paper-quilling · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/paper-quilling-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/paper-quilling-mountain-lake.jpg" width="200" alt="Mountain lake in Paper Quilling"></a> <a href="usr/share/kiro-atelier-check/gallery/view/paper-quilling-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/paper-quilling-city.jpg" width="200" alt="City in Paper Quilling"></a> <a href="usr/share/kiro-atelier-check/gallery/view/paper-quilling-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/paper-quilling-portrait.jpg" width="200" alt="Portrait in Paper Quilling"></a> <a href="usr/share/kiro-atelier-check/gallery/view/paper-quilling-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/paper-quilling-sea.jpg" width="200" alt="Sea in Paper Quilling"></a>
+
+### Origami
+
+Folded paper: crisp facets and pleats. Animals and buildings become paper models.  
+*strength 0.65 · origami · 3840 × 2160*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/origami-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/origami-mountain-lake.jpg" width="200" alt="Mountain lake in Origami"></a> <a href="usr/share/kiro-atelier-check/gallery/view/origami-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/origami-city.jpg" width="200" alt="City in Origami"></a> <a href="usr/share/kiro-atelier-check/gallery/view/origami-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/origami-portrait.jpg" width="200" alt="Portrait in Origami"></a> <a href="usr/share/kiro-atelier-check/gallery/view/origami-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/origami-sea.jpg" width="200" alt="Sea in Origami"></a>
+
+### Light Files
+
+Impasto at 1920 × 1080: small files for a laptop or a second screen. Paints as fast as 4K.  
+*strength 0.60 · impasto · 1920 × 1080*
+
+<a href="usr/share/kiro-atelier-check/gallery/view/light-files-mountain-lake.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/light-files-mountain-lake.jpg" width="200" alt="Mountain lake in Light Files"></a> <a href="usr/share/kiro-atelier-check/gallery/view/light-files-city.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/light-files-city.jpg" width="200" alt="City in Light Files"></a> <a href="usr/share/kiro-atelier-check/gallery/view/light-files-portrait.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/light-files-portrait.jpg" width="200" alt="Portrait in Light Files"></a> <a href="usr/share/kiro-atelier-check/gallery/view/light-files-sea.jpg"><img src="usr/share/kiro-atelier-check/gallery/thumb/light-files-sea.jpg" width="200" alt="Sea in Light Files"></a>
+
 ## What it ships
 
 - `/usr/bin/kiro-atelier-check` — the whole tool, one standalone Python file (no Kiro Atelier imports)

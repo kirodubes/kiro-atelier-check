@@ -7,10 +7,14 @@
   three groups KA Check shows behind its button (meets the requirements / likely slow, not tested / doesn't work),
   with the note that only the RTX 2060 6 GB is tested. People can see whether their card qualifies before they
   install anything.
+- **All 22 styles on the GitHub page.** The README gains "All 22 styles": the four original photos, then every style
+  with its description, settings line and the four photos painted in it; each picture links to the full size.
 
 ### Technical Details
 - Copied word for word from `CARD_LIST` and `CARD_NOTE` in the script; CLAUDE.md records the coupling. README only,
   so no package build is needed.
+- The style section is generated from `gallery/gallery.json` and points at the gallery's existing `thumb/` (shown at
+  200 px) and `view/` images, so no image is added to the repo. Regenerate it after a gallery re-export.
 
 ### Files Modified
 - `README.md`, `CLAUDE.md`, `CHANGELOG.md`
